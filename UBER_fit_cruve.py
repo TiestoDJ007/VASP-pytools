@@ -1,25 +1,43 @@
 #!/home/universe/local_env/anaconda3/envs/abinit/bin/python
+from math import sin, pi
+
 import matplotlib.pyplot as plt
 import numpy as np
-from scipy.optimize import curve_fit
+from pymatgen.io.vasp import Poscar
+from scipy.optimize import curve_fit, fminbound
+
+
+def UBER_FUNC(d, E_0, l, d_0):
+    return -E_0 * (1 + (d - d_0) / l) * np.exp(-(d - d_0) / l)
+
 
 if __name__ == '__main__':
 
     d, E = [], []
-    UBER_file = open('data_UBER', 'r')
+    Module_Number = int(3)
+    Situation_Number = int(3)
+    UBER_file = open("Results/Uber/M{0}_S{1}".format(Module_Number, Situation_Number), 'r')
+    original_poscar = Poscar.from_file("Initial_Structure/POSCAR_M{0}_S{1}".format(Module_Number, Situation_Number))
     lines = UBER_file.readlines()
-    for number_data in range(0, 152, 4):
+    for number_data in range(4, 152, 4):
         d.append(float(lines[number_data + 1].strip("DISTANCE=")))
         E.append(float(lines[number_data + 3].strip("W_seq=")))
+    E = np.array(E)
+    d = np.array(d)
 
-    parameter, func = curve_fit(lambda d, E_0, l, d_0: -E_0 * (1 + (d - d_0) / l) * np.exp(-(d - d_0) / l), d, E)
+    Area_Value = original_poscar.structure.lattice.a * original_poscar.structure.lattice.b * sin(
+        original_poscar.structure.lattice.alpha * pi / 180)
+    eV2J = 16.0217662
+
+    parameter, func = curve_fit(lambda d, E_0, l, d_0: UBER_FUNC(d, E_0, l, d_0), d, E)
     plt.figure()
     d_fit = np.arange(0.1, 10, 0.1)
-    E_0, l, d_0 = parameter
-    E_fit = -E_0 * (1 + (d_fit - d_0) / l) * np.exp(-(d_fit - d_0) / l)
-    plt.plot(d, E, 'ko', label="Original Data")
-    plt.plot(d_fit, E_fit, 'r-', label="Fitting Curve")
-    plt.xlim(0.5,8)
-    plt.ylim(-30,10)
+    E_fit = lambda x: UBER_FUNC(x, parameter[0], parameter[1], parameter[2])
+    Interface_Distance = fminbound(E_fit, 1, 3)
+    print("Interface Distance = {}".format(Interface_Distance))
+    plt.plot(d, E / Area_Value * eV2J, 'ko', label="Original Data")
+    plt.plot(d_fit, E_fit(d_fit) / Area_Value * eV2J, 'r-', label="Fitting Curve")
+    plt.xlim(0.5, 8)
+    plt.ylim(-10, 10)
     plt.legend()
     plt.show()
