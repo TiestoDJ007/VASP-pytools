@@ -5,12 +5,12 @@ from copy import deepcopy
 from pymatgen import Lattice
 from pymatgen.io.vasp import Poscar
 
-original_poscar = Poscar.from_file("Initial_Structure/POSCAR_M3_S3")
+original_poscar = Poscar.from_file("Initial_Structure/POSCAR_M4_S1")
 
-interface_position = 8.0
+interface_position = 12.0
 gap_distance = 0.05
-max_distance = 2.45
-initial_c = 1.5
+max_distance = 2.95
+initial_c = 2.0
 up_c = 0.0
 
 alpha_Ti_list = []
@@ -35,7 +35,7 @@ gap_alpha_beta = beta_Ti_min - alpha_Ti_max
 
 for number_step in range(1, int((max_distance - initial_c) / gap_distance) + 1):
 
-    path_name = "Calculation_Files/M3_S3_Uber_{0}A_{1}A_{2}A/{3}".format(gap_distance + initial_c, gap_distance,
+    path_name = "Calculation_Files/M4_S1_Uber_{0}A_{1}A_{2}A/{3}".format(gap_distance + initial_c, gap_distance,
                                                                          max_distance, number_step)
     os.makedirs(path_name)
 
