@@ -15,12 +15,12 @@ def UBER_FUNC(d, E_0, l, d_0):
 if __name__ == '__main__':
 
     d, E = [], []
-    Module_Number = int(3)
-    Situation_Number = int(3)
+    Module_Number = int(4)
+    Situation_Number = int(1)
     UBER_file = open("Results/Uber/M{0}_S{1}".format(Module_Number, Situation_Number), 'r')
     original_poscar = Poscar.from_file("Initial_Structure/POSCAR_M{0}_S{1}".format(Module_Number, Situation_Number))
     lines = UBER_file.readlines()
-    for number_data in range(4, 152, 4):
+    for number_data in range(8, 152, 4):
         d.append(float(lines[number_data + 1].strip("DISTANCE=")))
         E.append(float(lines[number_data + 3].strip("W_seq=")))
     E = np.array(E)
@@ -36,6 +36,7 @@ if __name__ == '__main__':
     E_fit = lambda x: UBER_FUNC(x, parameter[0], parameter[1], parameter[2])
     Interface_Distance = fminbound(E_fit, 1, 3)
     print("Interface Distance = {}".format(Interface_Distance))
+    print("W_Seq = {}".format(E_fit(Interface_Distance) / Area_Value * eV2J))
     plt.plot(d, E / Area_Value * eV2J, 'ko', label="Original Data")
     plt.plot(d_fit, E_fit(d_fit) / Area_Value * eV2J, 'r-', label="Fitting Curve")
     plt.xlim(0.5, 8)
