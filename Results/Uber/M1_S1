@@ -1,121 +1,157 @@
 
-DISTANCE=0.50
-E_alpha= -257.941612  E_beta= -255.065709  E_total= -327.213188
-W_seq=185.794133
+DISTANCE=0.500
+E_alpha= -400.245696  E_beta= -255.797642  E_total= -446.096207
+W_seq=209.947131
 
-DISTANCE=1.00
-E_alpha= -257.933792  E_beta= -255.062781  E_total= -484.044285
-W_seq=28.952288
+DISTANCE=1.000
+E_alpha= -400.240682  E_beta= -255.797378  E_total= -618.155701
+W_seq=37.882359
 
-DISTANCE=1.50
-E_alpha= -257.932869  E_beta= -255.061547  E_total= -536.629458
-W_seq=-23.635042
+DISTANCE=1.500
+E_alpha= -400.239577  E_beta= -255.796996  E_total= -675.890428
+W_seq=-19.853855
 
 DISTANCE=1.550
-E_alpha= -260.372835  E_beta= -255.797674  E_total= -537.958467
-W_seq=-21.787958
+E_alpha= -400.239261  E_beta= -255.797070  E_total= -677.726600
+W_seq=-21.690269
 
 DISTANCE=1.600
-E_alpha= -260.373330  E_beta= -255.797233  E_total= -539.379284
-W_seq=-23.208721
+E_alpha= -400.238985  E_beta= -255.797468  E_total= -679.149372
+W_seq=-23.112919
 
 DISTANCE=1.650
-E_alpha= -260.373172  E_beta= -255.797256  E_total= -540.457911
-W_seq=-24.287483
+E_alpha= -400.239383  E_beta= -255.797676  E_total= -680.230479
+W_seq=-24.193420
 
 DISTANCE=1.700
-E_alpha= -260.372757  E_beta= -255.797337  E_total= -541.260432
-W_seq=-25.090338
+E_alpha= -400.239240  E_beta= -255.797863  E_total= -681.033556
+W_seq=-24.996453
 
 DISTANCE=1.750
-E_alpha= -260.372869  E_beta= -255.798208  E_total= -541.843560
-W_seq=-25.672483
+E_alpha= -400.239362  E_beta= -255.797422  E_total= -681.613684
+W_seq=-25.576900
 
 DISTANCE=1.800
-E_alpha= -260.372561  E_beta= -255.798340  E_total= -542.248068
-W_seq=-26.077167
+E_alpha= -400.239133  E_beta= -255.796983  E_total= -682.017691
+W_seq=-25.981575
 
 DISTANCE=1.850
-E_alpha= -260.373039  E_beta= -255.797692  E_total= -542.510300
-W_seq=-26.339569
+E_alpha= -400.239520  E_beta= -255.796935  E_total= -682.281596
+W_seq=-26.245141
 
 DISTANCE=1.900
-E_alpha= -260.373055  E_beta= -255.797706  E_total= -542.656917
-W_seq=-26.486156
+E_alpha= -400.239188  E_beta= -255.797158  E_total= -682.430846
+W_seq=-26.394500
 
 DISTANCE=1.950
-E_alpha= -260.372539  E_beta= -255.797705  E_total= -542.706758
-W_seq=-26.536514
+E_alpha= -400.239060  E_beta= -255.797327  E_total= -682.485073
+W_seq=-26.448686
 
 DISTANCE=2.000
-E_alpha= -260.372206  E_beta= -255.797574  E_total= -542.673721
-W_seq=-26.503941
+E_alpha= -400.239742  E_beta= -255.797249  E_total= -682.458713
+W_seq=-26.421722
 
 DISTANCE=2.050
-E_alpha= -260.372440  E_beta= -255.797670  E_total= -542.569811
-W_seq=-26.399701
+E_alpha= -400.240231  E_beta= -255.797132  E_total= -682.361987
+W_seq=-26.324624
 
 DISTANCE=2.100
-E_alpha= -260.372212  E_beta= -255.797550  E_total= -542.401555
-W_seq=-26.231793
+E_alpha= -400.239347  E_beta= -255.797230  E_total= -682.202331
+W_seq=-26.165754
 
 DISTANCE=2.150
-E_alpha= -260.372642  E_beta= -255.797553  E_total= -542.177126
-W_seq=-26.006931
+E_alpha= -400.239011  E_beta= -255.797410  E_total= -681.987469
+W_seq=-25.951048
 
 DISTANCE=2.200
-E_alpha= -260.372302  E_beta= -255.797609  E_total= -541.899431
-W_seq=-25.729520
+E_alpha= -400.239335  E_beta= -255.797594  E_total= -681.721951
+W_seq=-25.685022
 
 DISTANCE=2.250
-E_alpha= -260.372283  E_beta= -255.797610  E_total= -541.574471
-W_seq=-25.404578
+E_alpha= -400.239201  E_beta= -255.797836  E_total= -681.408026
+W_seq=-25.370989
 
 DISTANCE=2.300
-E_alpha= -260.372224  E_beta= -255.797525  E_total= -541.204598
-W_seq=-25.034849
+E_alpha= -400.239391  E_beta= -255.797604  E_total= -681.048377
+W_seq=-25.011382
 
 DISTANCE=2.350
-E_alpha= -260.372583  E_beta= -255.797360  E_total= -540.793619
-W_seq=-24.623676
+E_alpha= -400.239226  E_beta= -255.797193  E_total= -680.646029
+W_seq=-24.609610
 
 DISTANCE=2.400
-E_alpha= -260.372158  E_beta= -255.797561  E_total= -540.343642
-W_seq=-24.173923
+E_alpha= -400.239293  E_beta= -255.797176  E_total= -680.204748
+W_seq=-24.168279
 
 DISTANCE=2.450
-E_alpha= -260.372359  E_beta= -255.797552  E_total= -539.859000
-W_seq=-23.689089
+E_alpha= -400.239059  E_beta= -255.797297  E_total= -679.727130
+W_seq=-23.690774
 
-DISTANCE=2.50
-E_alpha= -257.931952  E_beta= -255.061690  E_total= -536.910693
-W_seq=-23.917051
+DISTANCE=2.000
+E_alpha= -400.239742  E_beta= -255.797249  E_total= -682.458713
+W_seq=-26.421722
 
-DISTANCE=3.00
-E_alpha= -257.931924  E_beta= -255.061285  E_total= -530.407682
-W_seq=-17.414473
+DISTANCE=2.500
+E_alpha= -400.239273  E_beta= -255.797402  E_total= -679.216806
+W_seq=-23.180131
 
-DISTANCE=3.50
-E_alpha= -257.931857  E_beta= -255.061395  E_total= -524.279851
-W_seq=-11.286599
+DISTANCE=3.000
+E_alpha= -400.239081  E_beta= -255.797285  E_total=
+W_seq=656.036366
 
-DISTANCE=4.00
-E_alpha= -257.931764  E_beta= -255.060414  E_total= -519.768663
-W_seq=-6.776485
+DISTANCE=3.500
+E_alpha= -400.239172  E_beta= -255.797596  E_total= -667.085090
+W_seq=-11.048322
 
-DISTANCE=4.50
-E_alpha= -257.931794  E_beta= -255.061197  E_total= -516.851460
-W_seq=-3.858469
+DISTANCE=4.000
+E_alpha= -400.239328  E_beta= -255.796916  E_total= -662.674307
+W_seq=-6.638063
 
-DISTANCE=5.00
-E_alpha= -257.932094  E_beta= -255.061682  E_total= -515.096918
-W_seq=-2.103142
+DISTANCE=4.500
+E_alpha= -400.239002  E_beta= -255.797730  E_total= -659.819102
+W_seq=-3.782370
 
-DISTANCE=5.50
-E_alpha= -257.931745  E_beta= -255.061702  E_total= -514.100573
-W_seq=-1.107126
+DISTANCE=5.000
+E_alpha= -400.238941  E_beta= -255.797130  E_total= -658.094581
+W_seq=-2.058510
 
-DISTANCE=6.00
-E_alpha= -257.931788  E_beta= -255.061171  E_total= -513.572806
-W_seq=-0.579847
+DISTANCE=5.500
+E_alpha= -400.238706  E_beta= -255.797233  E_total= -657.115857
+W_seq=-1.079918
+
+DISTANCE=6.000
+E_alpha= -400.238652  E_beta= -255.797195  E_total= -656.601301
+W_seq=-0.565454
+
+DISTANCE=6.500
+E_alpha= -400.239100  E_beta= -255.797132  E_total= -656.353843
+W_seq=-0.317611
+
+DISTANCE=7.000
+E_alpha= -400.239042  E_beta= -255.796682  E_total= -656.240263
+W_seq=-0.204539
+
+DISTANCE=7.500
+E_alpha= -400.239253  E_beta= -255.796852  E_total= -656.186600
+W_seq=-0.150495
+
+DISTANCE=8.000
+E_alpha= -400.238613  E_beta= -255.796988  E_total= -656.156777
+W_seq=-0.121176
+
+DISTANCE=8.500
+E_alpha= -400.238932  E_beta= -255.797014  E_total= -656.138980
+W_seq=-0.103034
+
+DISTANCE=9.000
+E_alpha= -400.239036  E_beta= -255.797049  E_total= -656.126513
+W_seq=-0.090428
+
+DISTANCE=9.500
+E_alpha= -400.238473  E_beta= -255.797135  E_total= -656.116687
+W_seq=-0.081079
+
+DISTANCE=10.000
+E_alpha= -400.238715  E_beta= -255.797523  E_total= -656.109942
+W_seq=-0.073704
 
