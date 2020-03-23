@@ -20,7 +20,7 @@ if __name__ == '__main__':
     UBER_file = open("Results/Uber/M{0}_S{1}".format(Module_Number, Situation_Number), 'r')
     original_poscar = Poscar.from_file("Initial_Structure/POSCAR_M{0}_S{1}".format(Module_Number, Situation_Number))
     lines = UBER_file.readlines()
-    for number_data in range(8, 152, 4):
+    for number_data in range(0, 152, 4):
         d.append(float(lines[number_data + 1].strip("DISTANCE=")))
         E.append(float(lines[number_data + 3].strip("W_seq=")))
     E = np.array(E)
@@ -30,7 +30,7 @@ if __name__ == '__main__':
         original_poscar.structure.lattice.alpha * pi / 180)
     eV2J = 16.0217662
 
-    parameter, func = curve_fit(lambda d, E_0, l, d_0: UBER_FUNC(d, E_0, l, d_0), d, E)
+    parameter, func = curve_fit(lambda d, E_0, l, d_0: UBER_FUNC(d, E_0, l, d_0), d[3:34], E[3:34])
     plt.figure()
     d_fit = np.arange(0.1, 10, 0.1)
     E_fit = lambda x: UBER_FUNC(x, parameter[0], parameter[1], parameter[2])
