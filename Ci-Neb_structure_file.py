@@ -7,7 +7,7 @@ from pymatgen.io.vasp import Poscar, Potcar
 
 Module_Number = int(1)
 Situation_Number = int(1)
-First_Atom = [6]
+First_Atom = [61]
 Second_Atom = [4, 13, 15, 17]
 Original_POSCAR = Poscar.from_file(
     "Calculation_Files/Optimistic_Structure/POSCAR_SO_M{0}_S{1}".format(Module_Number, Situation_Number))
@@ -16,14 +16,14 @@ for atom_first in First_Atom:
     for atom_second in Second_Atom:
         Ini_Structure = deepcopy(Original_POSCAR)
         Fin_Structure = deepcopy(Original_POSCAR)
-        Ini_a = Original_POSCAR.structure[atom_first].a
-        Ini_b = Original_POSCAR.structure[atom_first].b
-        Ini_c = Original_POSCAR.structure[atom_first].c
-        Fin_a = Original_POSCAR.structure[atom_second].a
-        Fin_b = Original_POSCAR.structure[atom_second].b
-        Fin_c = Original_POSCAR.structure[atom_second].c
-        Ini_Structure.structure.remove_sites([atom_first, atom_second])
-        Fin_Structure.structure.remove_sites([atom_first, atom_second])
+        Ini_x = Original_POSCAR.structure[atom_first - 1].x
+        Ini_y = Original_POSCAR.structure[atom_first - 1].y
+        Ini_z = Original_POSCAR.structure[atom_first - 1].z
+        Fin_x = Original_POSCAR.structure[atom_second - 1].x
+        Fin_y = Original_POSCAR.structure[atom_second - 1].y
+        Fin_z = Original_POSCAR.structure[atom_second - 1].z
+        Ini_Structure.structure.remove_sites([atom_first - 1, atom_second - 1])
+        Fin_Structure.structure.remove_sites([atom_first - 1, atom_second - 1])
 
         sd_bool = Ini_Structure.selective_dynamics
         sd_int = []
@@ -33,10 +33,10 @@ for atom_first in First_Atom:
         sd_int.append(np.array((1, 1, 1)))
         sd_int = np.array(sd_int)
 
-        Ini_Structure.structure.append('Al', (Ini_a, Ini_b, Ini_c))
+        Ini_Structure.structure.append('Al', (Ini_x, Ini_y, Ini_z), coords_are_cartesian=True)
         Ini_Structure.selective_dynamics = sd_int
 
-        Fin_Structure.structure.append('Al', (Fin_a, Fin_b, Fin_c))
+        Fin_Structure.structure.append('Al', (Fin_x, Fin_y, Fin_z), coords_are_cartesian=True)
         Fin_Structure.selective_dynamics = sd_int
 
         os.makedirs(
