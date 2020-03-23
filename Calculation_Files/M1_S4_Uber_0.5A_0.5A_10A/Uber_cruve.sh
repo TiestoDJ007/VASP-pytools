@@ -5,7 +5,7 @@ module load vasp/5.4.4-mpi3-O3-scalapack-vtst
 echo > structure_energy
 for Number_dir in `seq 1 1 20`
 do
-DISTANCE=$(printf "%.3f" `echo "scale=2;$Number_dir*(0.05)+1.5"|bc`)
+DISTANCE=$(printf "%.3f" `echo "scale=2;$Number_dir*(0.5)"|bc`)
 echo "Distance=$DISTANCE"
 cp {INCAR,KPOINTS,POTCAR} $Number_dir/
 cd $Number_dir
