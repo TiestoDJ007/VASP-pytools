@@ -5,10 +5,10 @@ from copy import deepcopy
 import numpy as np
 from pymatgen.io.vasp import Poscar, Potcar
 
-Module_Number = int(1)
+Module_Number = int(3)
 Situation_Number = int(1)
-First_Atom = [61]
-Second_Atom = [4, 13, 15, 17]
+First_Atom = [57, 41]
+Second_Atom = [1, 2, 7, 8, 19]
 Original_POSCAR = Poscar.from_file(
     "Calculation_Files/Optimistic_Structure/POSCAR_SO_M{0}_S{1}".format(Module_Number, Situation_Number))
 
@@ -39,16 +39,12 @@ for atom_first in First_Atom:
         Fin_Structure.structure.append('Al', (Fin_x, Fin_y, Fin_z), coords_are_cartesian=True)
         Fin_Structure.selective_dynamics = sd_int
 
-        os.makedirs(
-            "Calculation_Files/CI-NEB/{2}/{0}-{1}/".format(atom_first, atom_second, Fin_Structure.site_symbols[1]))
-
-        Ini_Structure.write_file(
-            "Calculation_Files/CI-NEB/{2}/{0}-{1}/POSCAR_Ini".format(atom_first, atom_second,
-                                                                     Fin_Structure.site_symbols[1]))
-        Fin_Structure.write_file(
-            "Calculation_Files/CI-NEB/{2}/{0}-{1}/POSCAR_Fin".format(atom_first, atom_second,
-                                                                     Fin_Structure.site_symbols[1]))
+        structure_path = "Calculation_Files/CI-NEB/M{0}_S{1}/{2}".format(Module_Number, Situation_Number,
+                                                                         Fin_Structure.site_symbols[1])
+        cineb_path = structure_path + "/{0:0>2d}-{1:0>2d}".format(atom_first, atom_second)
+        os.makedirs(cineb_path)
+        Ini_Structure.write_file(cineb_path + "/POSCAR_Ini")
+        Fin_Structure.write_file(cineb_path + "/POSCAR_Fin")
 
         pot_file = Potcar(symbols=Fin_Structure.site_symbols, functional='PBE')
-        pot_file.write_file("Calculation_Files/CI-NEB/{1}/POTCAR".format(Fin_Structure.site_symbols[0],
-                                                                         Fin_Structure.site_symbols[1]))
+        pot_file.write_file(structure_path + "/POTCAR")
