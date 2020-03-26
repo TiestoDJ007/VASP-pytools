@@ -14,9 +14,9 @@ for DIFFUSION_DIR in ` ls -d */ ` ; do
     mv $INI_DIR/INCAR_SO $INI_DIR/INCAR
     cp {INCAR_SO,KPOINTS,POTCAR} $FIN_DIR/
     mv $FIN_DIR/INCAR_SO $FIN_DIR/INCAR
-    cp $DIFFUSION_DIR/POSCAR_Ini $INI_DIR
+    cp $DIFFUSION_DIR"POSCAR_Ini" $INI_DIR
 	mv $WORK_PATH/$INI_DIR/POSCAR_Ini $WORK_PATH/$INI_DIR/POSCAR
-    cp $DIFFUSION_DIR/POSCAR_Fin $FIN_DIR
+    cp $DIFFUSION_DIR"POSCAR_Fin" $FIN_DIR
 	mv $WORK_PATH/$FIN_DIR/POSCAR_Fin $WORK_PATH/$FIN_DIR/POSCAR
     cd $WORK_PATH/$INI_DIR
     srun -N 1 -n 24 -p paratera -J dilute-Ti vasp_std | tee ini.log;
@@ -26,8 +26,8 @@ for DIFFUSION_DIR in ` ls -d */ ` ; do
     Delta_Distance=$(dist.pl ini/CONTCAR fin/CONTCAR)
     echo $Delta_Distance
     nebmake.pl ini/CONTCAR fin/CONTCAR 3
-    cp $WORK_PATH/INCAR_CI $WORK_PATH/$DIFFUSION_DIR/INCAR
-    cp $WORK_PATH/{KPOINTS,POTCAR} $WORK_PATH/$DIFFUSION_DIR/
+    cp $WORK_PATH/INCAR_CI $WORK_PATH/$DIFFUSION_DIR"INCAR"
+    cp $WORK_PATH/{KPOINTS,POTCAR} $WORK_PATH/$DIFFUSION_DIR
     srun -N 1 -n 24 -p paratera -J dilute-Ti vasp_std | tee NEB.log;
     cd $WORK_PATH
 done
