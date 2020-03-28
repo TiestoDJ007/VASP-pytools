@@ -1,0 +1,45 @@
+VASP @ Device Studio
+# Basic setup:
+ ISPIN = 1
+ ICHARG = 2
+
+#Basis Set 
+ LSORBIT = .FALSE.
+ LDAU = .FALSE.
+
+# Accuracy controls:
+ PREC = Normal
+ LREAL= Auto
+ ENCUT= 450
+
+# Electronic loop controls:
+ ALGO = Fast
+ EDIFF = 1E-7
+ NELM = 100
+ ISMEAR = -1
+ SIGMA = 0.02
+
+# Geo opt:
+ ISIF = 2
+ IBRION = 3
+ POTIM = 0
+ NSW = 200
+ EDIFFG = -0.03
+ 
+# VTST:
+ ICHAIN = 0
+ LCLIMB = .TRUE.
+ IOPT = 2
+ IMAGES = 3
+ SPRING = -5
+
+# Properties:
+ LCHARG = .TRUE.
+ LWAVE = .FALSE. 
+ LELF = .FALSE.
+ LVTOT = .FALSE.
+ LVHAR = .FALSE.
+ LORBIT = 0
+ KPAR = 2
+ NCORE = 4
+ GGA = PS

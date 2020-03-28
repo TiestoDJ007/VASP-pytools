@@ -9,6 +9,7 @@ Module_Number = int(3)
 Situation_Number = int(1)
 First_Atom = [57, 41]
 Second_Atom = [1, 2, 7, 8, 19]
+Diffusion_Atom = 'Sn'
 Original_POSCAR = Poscar.from_file(
     "Calculation_Files/Optimistic_Structure/POSCAR_SO_M{0}_S{1}".format(Module_Number, Situation_Number))
 
@@ -33,10 +34,10 @@ for atom_first in First_Atom:
         sd_int.append(np.array((1, 1, 1)))
         sd_int = np.array(sd_int)
 
-        Ini_Structure.structure.append('Al', (Ini_x, Ini_y, Ini_z), coords_are_cartesian=True)
+        Ini_Structure.structure.append(Diffusion_Atom, (Ini_x, Ini_y, Ini_z), coords_are_cartesian=True)
         Ini_Structure.selective_dynamics = sd_int
 
-        Fin_Structure.structure.append('Al', (Fin_x, Fin_y, Fin_z), coords_are_cartesian=True)
+        Fin_Structure.structure.append(Diffusion_Atom, (Fin_x, Fin_y, Fin_z), coords_are_cartesian=True)
         Fin_Structure.selective_dynamics = sd_int
 
         structure_path = "Calculation_Files/CI-NEB/M{0}_S{1}/{2}".format(Module_Number, Situation_Number,
