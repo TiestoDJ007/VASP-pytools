@@ -15,8 +15,8 @@ def UBER_FUNC(d, E_0, l, d_0):
 if __name__ == '__main__':
 
     d, E = [], []
-    Module_Number = int(4)
-    Situation_Number = int(1)
+    Module_Number = int(1)
+    Situation_Number = int(4)
     UBER_file = open("Results/Uber/M{0}_S{1}".format(Module_Number, Situation_Number), 'r')
     original_poscar = Poscar.from_file("Initial_Structure/POSCAR_M{0}_S{1}".format(Module_Number, Situation_Number))
     lines = UBER_file.readlines()
@@ -30,7 +30,7 @@ if __name__ == '__main__':
         original_poscar.structure.lattice.alpha * pi / 180)
     eV2J = 16.0217662
 
-    parameter, func = curve_fit(lambda d, E_0, l, d_0: UBER_FUNC(d, E_0, l, d_0), d[3:34], E[3:34])
+    parameter, func = curve_fit(lambda d, E_0, l, d_0: UBER_FUNC(d, E_0, l, d_0), d[4:30], E[4:30])
     plt.figure()
     d_fit = np.arange(0.1, 10, 0.1)
     E_fit = lambda x: UBER_FUNC(x, parameter[0], parameter[1], parameter[2])

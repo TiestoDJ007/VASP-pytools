@@ -6,11 +6,11 @@ from pymatgen import Lattice
 from pymatgen.io.vasp import Poscar
 
 interface_position = 8.0
-alpha_limit = 3.5
-beta_limit = 13.0
-interface_distance = 1.9591612063956567
-Module_Number = int(3)
-Situation_Number = int(2)
+alpha_limit = 3.0
+beta_limit = 15.0
+interface_distance = 1.9850412070837329
+Module_Number = int(2)
+Situation_Number = int(1)
 
 original_poscar = Poscar.from_file("Initial_Structure/POSCAR_M{0}_S{1}".format(Module_Number, Situation_Number))
 alpha_Ti_list = []

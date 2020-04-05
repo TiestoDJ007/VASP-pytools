@@ -1,0 +1,81 @@
+
+DISTANCE=1.550
+E_alpha= -260.374038  E_beta= -255.796668  E_total= -537.958186 
+W_seq=-21.787480
+
+DISTANCE=1.600
+E_alpha= -260.373712  E_beta= -255.796630  E_total= -539.378769 
+W_seq=-23.208427
+
+DISTANCE=1.650
+E_alpha= -260.373245  E_beta= -255.796677  E_total= -540.457062 
+W_seq=-24.287140
+
+DISTANCE=1.700
+E_alpha= -260.373198  E_beta= -255.796926  E_total= -541.260082 
+W_seq=-25.089958
+
+DISTANCE=1.750
+E_alpha= -260.373124  E_beta= -255.796673  E_total= -541.842012 
+W_seq=-25.672215
+
+DISTANCE=1.800
+E_alpha= -260.373264  E_beta= -255.796838  E_total= -542.247565 
+W_seq=-26.077463
+
+DISTANCE=1.850
+E_alpha= -260.373903  E_beta= -255.796801  E_total= -542.510589 
+W_seq=-26.339885
+
+DISTANCE=1.900
+E_alpha= -260.373691  E_beta= -255.796606  E_total= -542.656675 
+W_seq=-26.486378
+
+DISTANCE=1.950
+E_alpha= -260.373010  E_beta= -255.796730  E_total= -542.706354 
+W_seq=-26.536614
+
+DISTANCE=2.000
+E_alpha= -260.373052  E_beta= -255.796788  E_total= -542.673868 
+W_seq=-26.504028
+
+DISTANCE=2.050
+E_alpha= -260.372989  E_beta= -255.796902  E_total= -542.569827 
+W_seq=-26.399936
+
+DISTANCE=2.100
+E_alpha= -260.372989  E_beta= -255.796668  E_total= -542.401560 
+W_seq=-26.231903
+
+DISTANCE=2.150
+E_alpha= -260.373852  E_beta= -255.796589  E_total= -542.177377 
+W_seq=-26.006936
+
+DISTANCE=2.200
+E_alpha= -260.373126  E_beta= -255.796837  E_total= -541.899621 
+W_seq=-25.729658
+
+DISTANCE=2.250
+E_alpha= -260.372879  E_beta= -255.796851  E_total= -541.574437 
+W_seq=-25.404707
+
+DISTANCE=2.300
+E_alpha= -260.373084  E_beta= -255.796612  E_total= -541.204652 
+W_seq=-25.034956
+
+DISTANCE=2.350
+E_alpha= -260.373213  E_beta= -255.796623  E_total= -540.793488 
+W_seq=-24.623652
+
+DISTANCE=2.400
+E_alpha= -260.372888  E_beta= -255.796856  E_total= -540.343800 
+W_seq=-24.174056
+
+DISTANCE=2.450
+E_alpha= -260.373029  E_beta= -255.796792  E_total= -539.858951 
+W_seq=-23.689130
+
+DISTANCE=2.500
+E_alpha= -260.373115  E_beta= -255.796594  E_total= -539.342213 
+W_seq=-23.172504
+
