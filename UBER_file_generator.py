@@ -36,7 +36,7 @@ gap_alpha_beta = beta_Ti_min - alpha_Ti_max
 
 for number_step in range(1, int((max_distance - initial_c) / gap_distance) + 1):
 
-    path_name = "Calculation_Files/M{0}_S{1}_Uber_{2}A_{3}A_{4}A/{5}".format(Module_Number, Situation_Number,
+    path_name = "Calculation_Files/UBER/M{0}_S{1}_Uber_{2}A_{3}A_{4}A/{5}".format(Module_Number, Situation_Number,
                                                                              gap_distance + initial_c, gap_distance,
                                                                              max_distance, number_step)
     os.makedirs(path_name)
