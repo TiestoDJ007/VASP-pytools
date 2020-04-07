@@ -5,10 +5,10 @@ from copy import deepcopy
 import numpy as np
 from pymatgen.io.vasp import Poscar, Potcar
 
-Module_Number = int(2)
+Module_Number = int(5)
 Situation_Number = int(1)
-First_Atom = [91, 102]
-Second_Atom = [1, 4, 10, 13, 28]
+First_Atom = [1, 7]
+Second_Atom = [22, 23, 24]
 Diffusion_Atom = 'Sn'
 Original_POSCAR = Poscar.from_file(
     "Calculation_Files/Optimistic_Structure/POSCAR_SO_M{0}_S{1}".format(Module_Number, Situation_Number))

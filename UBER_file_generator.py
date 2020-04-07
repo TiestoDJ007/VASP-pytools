@@ -5,12 +5,12 @@ from copy import deepcopy
 from pymatgen import Lattice
 from pymatgen.io.vasp import Poscar
 
-Module_Number = int(1)
+Module_Number = int(5)
 Situation_Number = int(1)
-interface_position = 12.0
+interface_position = 8.0
 gap_distance = 0.05
-max_distance = 2.45
-initial_c = 1.5
+max_distance = 2.95
+initial_c = 2.0
 up_c = 0.0
 
 original_poscar = Poscar.from_file("Initial_Structure/POSCAR_M{}_S{}".format(Module_Number, Situation_Number))
