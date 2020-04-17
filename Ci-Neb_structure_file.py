@@ -3,13 +3,13 @@ import os
 from copy import deepcopy
 
 import numpy as np
-from pymatgen.io.vasp import Poscar, Potcar
+from pymatgen.io.vasp import Poscar
 
-Module_Number = int(5)
+Module_Number = int(3)
 Situation_Number = int(1)
-First_Atom = [1, 7]
-Second_Atom = [22, 23, 24]
-Diffusion_Atom = 'Sn'
+First_Atom = [41,57]
+Second_Atom = [1,2,7,8,19]
+Diffusion_Atom = 'Nb'
 Original_POSCAR = Poscar.from_file(
     "Calculation_Files/Optimistic_Structure/POSCAR_SO_M{0}_S{1}".format(Module_Number, Situation_Number))
 
@@ -47,5 +47,5 @@ for atom_first in First_Atom:
         Ini_Structure.write_file(cineb_path + "/POSCAR_Ini")
         Fin_Structure.write_file(cineb_path + "/POSCAR_Fin")
 
-        pot_file = Potcar(symbols=Fin_Structure.site_symbols, functional='PBE')
-        pot_file.write_file(structure_path + "/POTCAR")
+        #pot_file = Potcar(symbols=Fin_Structure.site_symbols, functional='PBE')
+        #pot_file.write_file(structure_path + "/POTCAR")

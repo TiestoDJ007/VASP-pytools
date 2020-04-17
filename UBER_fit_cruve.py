@@ -15,8 +15,8 @@ def UBER_FUNC(d, E_0, l, d_0):
 if __name__ == '__main__':
 
     d, E = [], []
-    Module_Number = int(1)
-    Situation_Number = int(4)
+    Module_Number = int(5)
+    Situation_Number = int(1)
     UBER_file = open("Results/Uber/M{0}_S{1}".format(Module_Number, Situation_Number), 'r')
     original_poscar = Poscar.from_file("Initial_Structure/POSCAR_M{0}_S{1}".format(Module_Number, Situation_Number))
     lines = UBER_file.readlines()
