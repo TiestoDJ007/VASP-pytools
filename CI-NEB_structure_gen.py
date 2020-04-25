@@ -1,5 +1,6 @@
 #!/home/universe/local_env/anaconda3/envs/abinit/bin/python
 import os
+import shutil
 
 import numpy as np
 from pymatgen.io.vasp import Poscar
@@ -16,9 +17,9 @@ def D2_list_to_nparray(D2_list):
 if __name__ == "__main__":
 
     Work_Dir = '/mnt/d/PycharmProjects/TI80/Calculation_Files/CI-NEB'
-    Diffusion_structure = '/M3_S1'
-    Diffusion_element = '/Al'
-    Transition_Paths = ['/41-01']
+    Diffusion_structure = '/M4_S1_single'
+    Diffusion_element = '/Zr'
+    Transition_Paths = ['/01-19', '/37-59', '/59-01']
     image_value = 3
 
     init_Contcar_Paths = []
@@ -26,9 +27,9 @@ if __name__ == "__main__":
 
     for Transition_Path in Transition_Paths:
         init_Contcar_Paths.append(
-            '{}'.format(Work_Dir + Diffusion_structure + Diffusion_element + Transition_Path + '/POSCAR_Ini'))
+            '{}'.format(Work_Dir + Diffusion_structure + Diffusion_element + Transition_Path + '/ini/CONTCAR'))
         final_Contcar_Paths.append(
-            '{}'.format(Work_Dir + Diffusion_structure + Diffusion_element + Transition_Path + '/POSCAR_Fin'))
+            '{}'.format(Work_Dir + Diffusion_structure + Diffusion_element + Transition_Path + '/fin/CONTCAR'))
     for number_path in range(len(init_Contcar_Paths)):
         init_Poscar = Poscar.from_file(init_Contcar_Paths[number_path], False)
         final_Poscar = Poscar.from_file(final_Contcar_Paths[number_path], False)
@@ -48,8 +49,10 @@ if __name__ == "__main__":
 
         for neb_number in range(len(neb_point)):
             image_number = '/' + '{:0>2d}'.format(neb_number)
-            image_path = Work_Dir + Diffusion_structure + '_unre' + Diffusion_element + Transition_Paths[
+            image_path = Work_Dir + Diffusion_structure + Diffusion_element + Transition_Paths[
                 number_path] + image_number
+            if os.path.exists(image_path):
+                shutil.rmtree(image_path)
             os.makedirs(image_path)
             POSCAR_path = image_path + '/POSCAR'
             neb_point[neb_number].to(fmt="poscar", filename=POSCAR_path)
