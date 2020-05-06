@@ -6,11 +6,11 @@ from pymatgen import Lattice
 from pymatgen.io.vasp import Poscar
 
 Module_Number = int(5)
-Situation_Number = int(2)
-interface_position = 8.0
-gap_distance = 0.05
-max_distance = 3.45
-initial_c = 2.5
+Situation_Number = int(3)
+interface_position = 11.0
+gap_distance = 0.5
+max_distance = 10
+initial_c = 0.0
 up_c = 0.0
 
 original_poscar = Poscar.from_file("Initial_Structure/POSCAR_M{}_S{}".format(Module_Number, Situation_Number))

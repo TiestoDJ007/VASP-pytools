@@ -5,13 +5,13 @@ import matplotlib.pyplot as plt
 from pymatgen.analysis.transition_state import NEBAnalysis
 
 if __name__ == "__main__":
-    Module_Number = int(3)
+    Module_Number = int(4)
     Situation_Number = int(1)
-    # Diffusion_elements = ['Al', 'Cr', 'Mo', 'Nb', 'Sn', 'Ti', 'Zr']
-    Diffusion_elements = ['Zr']
-    Transition_Paths = ['41-01', '41-07', '57-07', '57-19']
+    Diffusion_elements = ['Al', 'Cr', 'Mo', 'Nb', 'Sn', 'Ti', 'Zr']
+    #Diffusion_elements = ['Zr']
+    Transition_Paths = ['01-19', '37-59', '59-01']
     # Transition_Paths = ['57-19']
-    OUTCAR_root = '/mnt/c/Users/jackx/OneDrive/Calculation_Data/TC17_TI80/M{}_S{}_single'.format(Module_Number,
+    OUTCAR_root = '/mnt/c/Users/jackx/OneDrive/Calculation_Data/TC17_TI80/M{0}_S{1}_single'.format(Module_Number,
                                                                                                  Situation_Number)
     figure_path = '/mnt/c/Users/jackx/OneDrive/Calculation_Data/TC17_TI80/figure/M{0}_S{1}_single'.format(Module_Number,
                                                                                                           Situation_Number)

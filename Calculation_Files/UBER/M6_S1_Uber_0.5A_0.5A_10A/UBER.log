@@ -1,0 +1,115 @@
+Distance=0.500
+ running on   16 total cores
+ distrk:  each k-point on    8 cores,    2 groups
+ distr:  one band on    4 cores,    2 groups
+ using from now: INCAR     
+ vasp.5.4.4.18Apr17-6-g9f103f2a35 (build Nov 27 2019 20:08:17) complex          
+  
+ POSCAR found type information on POSCAR  Ti
+ POSCAR found :  1 types and      32 ions
+ scaLAPACK will be used
+
+ ----------------------------------------------------------------------------- 
+|                                                                             |
+|           W    W    AA    RRRRR   N    N  II  N    N   GGGG   !!!           |
+|           W    W   A  A   R    R  NN   N  II  NN   N  G    G  !!!           |
+|           W    W  A    A  R    R  N N  N  II  N N  N  G       !!!           |
+|           W WW W  AAAAAA  RRRRR   N  N N  II  N  N N  G  GGG   !            |
+|           WW  WW  A    A  R   R   N   NN  II  N   NN  G    G                |
+|           W    W  A    A  R    R  N    N  II  N    N   GGGG   !!!           |
+|                                                                             |
+|      You have enabled k-point parallelism (KPAR>1).                         |
+|      This developmental code was originally  written by Paul Kent at ORNL,  |
+|      and carefully double checked in Vienna.                                |
+|      GW as well as linear response parallelism added by Martijn Marsman     |
+|      and Georg Kresse.                                                      |
+|      Carefully verify results versus KPAR=1.                                |
+|      Report problems to Paul Kent and Vienna.                               |
+|                                                                             |
+ ----------------------------------------------------------------------------- 
+
+ LDA part: xc-table for Pade appr. of Perdew
+ POSCAR found type information on POSCAR  Ti
+ POSCAR found :  1 types and      32 ions
+ POSCAR, INCAR and KPOINTS ok, starting setup
+ FFT: planning ...
+ WAVECAR not read
+ entering main loop
+       N       E                     dE             d eps       ncg     rms          rms(c)
+DAV:   1     0.587387317052E+03    0.58739E+03   -0.36389E+04  3936   0.111E+03
+DAV:   2    -0.171753961624E+03   -0.75914E+03   -0.72947E+03  3936   0.246E+02
+DAV:   3    -0.285779410635E+03   -0.11403E+03   -0.10805E+03  6032   0.862E+01
+DAV:   4    -0.294451094892E+03   -0.86717E+01   -0.81823E+01  6064   0.265E+01
+DAV:   5    -0.294926466234E+03   -0.47537E+00   -0.45384E+00  6408   0.512E+00    0.686E+01
+DAV:   6    -0.540735136990E+03   -0.24581E+03   -0.38339E+03  7816   0.942E+01    0.113E+02
+DAV:   7    -0.241363023865E+03    0.29937E+03   -0.38370E+03  6922   0.180E+02    0.354E+01
+DAV:   8    -0.268519462724E+03   -0.27156E+02   -0.91567E+02  6244   0.100E+02    0.402E+01
+DAV:   9    -0.241305428807E+03    0.27214E+02   -0.23680E+02  6346   0.596E+01    0.243E+01
+DAV:  10    -0.237297548683E+03    0.40079E+01   -0.33375E+01  6376   0.169E+01    0.184E+01
+DAV:  11    -0.236974529266E+03    0.32302E+00   -0.24590E+00  6584   0.371E+00    0.177E+01
+DAV:  12    -0.235353594853E+03    0.16209E+01   -0.29582E+00  6240   0.605E+00    0.145E+01
+DAV:  13    -0.231867861326E+03    0.34857E+01   -0.10712E+01  5574   0.122E+01    0.674E+00
+DAV:  14    -0.231619718386E+03    0.24814E+00   -0.10091E+00  6296   0.321E+00    0.532E+00
+DAV:  15    -0.231623838740E+03   -0.41204E-02   -0.69050E-02  6048   0.916E-01    0.528E+00
+DAV:  16    -0.231000950519E+03    0.62289E+00   -0.35531E+00  5486   0.684E+00    0.234E+00
+DAV:  17    -0.230982098516E+03    0.18852E-01   -0.35622E-01  6496   0.141E+00    0.957E-01
+DAV:  18    -0.230980102324E+03    0.19962E-02   -0.24966E-02  5792   0.521E-01    0.681E-01
+DAV:  19    -0.230980741064E+03   -0.63874E-03   -0.31355E-02  6272   0.422E-01    0.365E-01
+DAV:  20    -0.230980772208E+03   -0.31144E-04   -0.98230E-03  6134   0.333E-01    0.170E-01
+DAV:  21    -0.230986069018E+03   -0.52968E-02   -0.98015E-03  5864   0.260E-01    0.266E-01
+DAV:  22    -0.230986969993E+03   -0.90097E-03   -0.47675E-03  6096   0.207E-01    0.119E-01
+DAV:  23    -0.230987623268E+03   -0.65328E-03   -0.53830E-04  5454   0.816E-02    0.154E-01
+DAV:  24    -0.230988382492E+03   -0.75922E-03   -0.21405E-03  4860   0.177E-01    0.608E-02
+DAV:  25    -0.230988394834E+03   -0.12342E-04   -0.14450E-04  5856   0.374E-02    0.469E-02
+DAV:  26    -0.230988371717E+03    0.23116E-04   -0.13466E-04  6064   0.351E-02    0.224E-02
+DAV:  27    -0.230988371709E+03    0.88294E-08   -0.39635E-05  5176   0.159E-02
+   1 F= -.23098837E+03 E0= -.23096967E+03  d E =-.374007E-01
+ running on   16 total cores
+ distrk:  each k-point on    8 cores,    2 groups
+ distr:  one band on    4 cores,    2 groups
+ using from now: INCAR     
+ vasp.5.4.4.18Apr17-6-g9f103f2a35 (build Nov 27 2019 20:08:17) complex          
+  
+ POSCAR found type information on POSCAR  Ti
+ POSCAR found :  1 types and      32 ions
+ scaLAPACK will be used
+
+ ----------------------------------------------------------------------------- 
+|                                                                             |
+|           W    W    AA    RRRRR   N    N  II  N    N   GGGG   !!!           |
+|           W    W   A  A   R    R  NN   N  II  NN   N  G    G  !!!           |
+|           W    W  A    A  R    R  N N  N  II  N N  N  G       !!!           |
+|           W WW W  AAAAAA  RRRRR   N  N N  II  N  N N  G  GGG   !            |
+|           WW  WW  A    A  R   R   N   NN  II  N   NN  G    G                |
+|           W    W  A    A  R    R  N    N  II  N    N   GGGG   !!!           |
+|                                                                             |
+|      You have enabled k-point parallelism (KPAR>1).                         |
+|      This developmental code was originally  written by Paul Kent at ORNL,  |
+|      and carefully double checked in Vienna.                                |
+|      GW as well as linear response parallelism added by Martijn Marsman     |
+|      and Georg Kresse.                                                      |
+|      Carefully verify results versus KPAR=1.                                |
+|      Report problems to Paul Kent and Vienna.                               |
+|                                                                             |
+ ----------------------------------------------------------------------------- 
+
+ LDA part: xc-table for Pade appr. of Perdew
+ POSCAR found type information on POSCAR  Ti
+ POSCAR found :  1 types and      32 ions
+ POSCAR, INCAR and KPOINTS ok, starting setup
+ FFT: planning ...
+ WAVECAR not read
+ WARNING: random wavefunctions but no delay for mixing, default for NELMDL
+ entering main loop
+       N       E                     dE             d eps       ncg     rms          rms(c)
+DAV:   1     0.574934697756E+03    0.57493E+03   -0.36264E+04  3936   0.111E+03
+DAV:   2    -0.173076777772E+03   -0.74801E+03   -0.71908E+03  3936   0.245E+02
+DAV:   3    -0.284447900708E+03   -0.11137E+03   -0.10336E+03  5904   0.849E+01
+DAV:   4    -0.292828744299E+03   -0.83808E+01   -0.78428E+01  6112   0.262E+01
+DAV:   5    -0.293248662500E+03   -0.41992E+00   -0.40913E+00  6256   0.503E+00    0.657E+01
+DAV:   6    -0.531558569649E+03   -0.23831E+03   -0.33091E+03  7504   0.100E+02    0.104E+02
+DAV:   7    -0.241793358352E+03    0.28977E+03   -0.33686E+03  7070   0.170E+02    0.330E+01
+DAV:   8    -0.268103690501E+03   -0.26310E+02   -0.76956E+02  6020   0.890E+01    0.373E+01
+DAV:   9    -0.238623219000E+03    0.29480E+02   -0.18020E+02  5824   0.509E+01    0.216E+01
+DAV:  10    -0.235730496912E+03    0.28927E+01   -0.23430E+01  6712   0.126E+01    0.166E+01
+DAV:  11    -0.235589580779E+03    0.14092E+00   -0.21881E+00  6696   0.300E+00    0.161E+01
