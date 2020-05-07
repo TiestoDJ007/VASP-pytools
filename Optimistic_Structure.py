@@ -38,12 +38,11 @@ for number_beta in beta_Ti_list:
     if original_poscar.structure[number_beta].z < beta_Ti_min:
         beta_Ti_min = original_poscar.structure[number_beta].z
 
-sd_array = np.ones((original_poscar.natoms[0],3))
+sd_array = np.ones((original_poscar.natoms[0], 3))
 for number_sd_alpha in alpha_Ti_sd:
     sd_array[number_sd_alpha] = np.zeros(3)
 for number_sd_beta in beta_Ti_sd:
     sd_array[number_sd_beta] = np.zeros(3)
-
 
 gap_alpha_beta = beta_Ti_min - alpha_Ti_max
 

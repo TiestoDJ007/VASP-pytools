@@ -31,5 +31,4 @@ for DIFFUSION_DIR in ` ls -d */ ` ; do
     srun -N 1 -n 24 -p paratera -J dilute-Ti vasp_std | tee NEB.log;
     cd $WORK_PATH
 done
-
-    
+  

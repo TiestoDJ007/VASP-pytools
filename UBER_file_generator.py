@@ -7,10 +7,10 @@ from pymatgen.io.vasp import Poscar
 
 Module_Number = int(5)
 Situation_Number = int(3)
-interface_position = 11.0
-gap_distance = 0.5
-max_distance = 10
-initial_c = 0.0
+interface_position = 8.0
+gap_distance = 0.06
+max_distance = 2.01
+initial_c = 1.01
 up_c = 0.0
 
 original_poscar = Poscar.from_file("Initial_Structure/POSCAR_M{}_S{}".format(Module_Number, Situation_Number))
