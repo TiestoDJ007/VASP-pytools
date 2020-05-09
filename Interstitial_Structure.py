@@ -6,20 +6,17 @@ import numpy as np
 from pymatgen.io.vasp import Poscar
 
 if __name__ == "__main__":
-    Module_Number = int(5)
-    Situation_Number = int(3)
+    Module_Number = int(6)
+    Situation_Number = int(1)
     Diffusion_Positions = [
-        ['1_Oct_alpha', 40, 16, 44, 8, 28, 4],
-        ['1_Tet_inter', 84, 40, 4, 88],
-        ['1_Oct_inter_beta', 80, 76, 84, 88, 40, 4],
-        ['1_Oct_beta', 80, 76],
-        ['1_Tet_beta', 80, 84, 88, 76],
+        ['1_Oct_alpha', 15,7,31,23,28,4],
+        ['1_Oct_inter', 13,15,87,84,7,4],
+        ['1_Oct_beta', 67,15],
+        ['1_Tet_beta', 87,11, 67,15],
         # ['1_BO_alpha', 4, 40, 28],
-        ['2_Oct_alpha', 28, 19, 32, 15, 43, 8],
-        ['2_Oct_inter_alpha', 88, 83, 39, 15, 28, 4],
-        ['2_Oct_inter_beta', 88, 76, 79, 83, 39, 4],
-        ['2_Oct_beta', 76, 79],
-        ['2_Tet_beta', 79, 76, 88, 83]
+        ['2_Oct_alpha', 15,7,31,23,28,4],
+        ['2_Oct_beta', 67,15],
+        ['2_Tet_beta', 87,11, 67,15]
     ]
     Diffusion_Atoms = ['Al', 'Cr', 'Mo', 'Nb', 'Sn', 'Ti', 'Zr']
     bottom_limit = 3.0
@@ -52,3 +49,10 @@ if __name__ == "__main__":
             Poscar_write = Poscar(interstitial_structure)
             Poscar_write.selective_dynamics = sd_atoms
             Poscar_write.write_file('{}/POSCAR'.format(Neb_Path))
+            Poscar_write.structure.to(filename='{}/POSCAR.cif'.format(Neb_Path))
+
+from math import sqrt
+
+tm = np.array([[(sqrt(3) + sqrt(2)), -(sqrt(3) - sqrt(2)), -2 * sqrt(2), 3 * sqrt(2)],
+               [-(sqrt(3) + sqrt(2)), (sqrt(3) - sqrt(2)), 2 * sqrt(2), 3 * sqrt(2)],
+               [2 * sqrt(3) - sqrt(2), -2 * sqrt(3) + sqrt(2), 2 * sqrt(2), 0]])
