@@ -18,7 +18,7 @@ if __name__ == '__main__':
     Module_Number = 5
     Situation_Number = 3
     start_number =15
-    finish_number = 27
+    finish_number = 34
     UBER_file = open("Results/Uber/M{0}_S{1}".format(Module_Number, Situation_Number), 'r')
     original_poscar = Poscar.from_file(
         "Initial_Structure/POSCAR_M{0}_S{1}".format(int(Module_Number), int(Situation_Number)))

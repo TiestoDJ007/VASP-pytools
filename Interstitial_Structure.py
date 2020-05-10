@@ -9,14 +9,14 @@ if __name__ == "__main__":
     Module_Number = int(6)
     Situation_Number = int(1)
     Diffusion_Positions = [
-        ['1_Oct_alpha', 15,7,31,23,28,4],
-        ['1_Oct_inter', 13,15,87,84,7,4],
-        ['1_Oct_beta', 67,15],
-        ['1_Tet_beta', 87,11, 67,15],
+        ['1_Oct_alpha', 15, 7, 31, 23, 28, 4],
+        ['1_Oct_inter', 13, 15, 87, 84, 7, 4],
+        ['1_Oct_beta', 67, 15],
+        ['1_Tet_beta', 87, 11, 67, 15],
         # ['1_BO_alpha', 4, 40, 28],
-        ['2_Oct_alpha', 15,7,31,23,28,4],
-        ['2_Oct_beta', 67,15],
-        ['2_Tet_beta', 87,11, 67,15]
+        ['2_Oct_alpha', 15, 7, 31, 23, 28, 4],
+        ['2_Oct_beta', 67, 15],
+        ['2_Tet_beta', 87, 11, 67, 15]
     ]
     Diffusion_Atoms = ['Al', 'Cr', 'Mo', 'Nb', 'Sn', 'Ti', 'Zr']
     bottom_limit = 3.0
@@ -40,9 +40,11 @@ if __name__ == "__main__":
             interstitial_postion = interstitial_postion / (len(Diffusion_Position) - 1)
             interstitial_structure = deepcopy(Structure_Poscar.structure)
             interstitial_structure.append(Diffusion_Atom, interstitial_postion, coords_are_cartesian=True)
-            Neb_Path = 'Calculation_Files/CI-NEB/M{0}_S{1}/Interstitial/{2}/{3}'.format(Module_Number, Situation_Number,
-                                                                                        Diffusion_Atom,
-                                                                                        Diffusion_Position[0])
+            Neb_Path = 'Calculation_Files/CI-NEB/M{0}_S{1}/Interstitial/{2}/Optimistic/{3}'.format(Module_Number,
+                                                                                                          Situation_Number,
+                                                                                                          Diffusion_Atom,
+                                                                                                          Diffusion_Position[
+                                                                                                              0])
             if os.path.exists(Neb_Path):
                 shutil.rmtree(Neb_Path)
             os.makedirs(Neb_Path)
