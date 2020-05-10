@@ -12,7 +12,7 @@ if __name__ == "__main__":
     Diffusion_elements = ['Al', 'Cr', 'Mo', 'Nb', 'Sn', 'Ti', 'Zr']
     # Diffusion_elements = ['Zr']
     # Transition_Paths = ['01-19', '37-59', '59-01']
-    Transition_Paths = ['01-19', '59-01']
+    Transition_Paths = ['37-59']
     OUTCAR_root = '/mnt/c/Users/jackx/OneDrive/Calculation_Data/TC17_TI80/M{0}_S{1}_single'.format(Module_Number,
                                                                                                    Situation_Number)
     figure_path = '/mnt/c/Users/jackx/OneDrive/Calculation_Data/TC17_TI80/figure/M{0}_S{1}_single'.format(Module_Number,
@@ -33,7 +33,6 @@ if __name__ == "__main__":
             ax.plot(xx, f(xx) * 1000, label=Diffusion_element, linewidth=3)
             ax.legend()
         plt.xlim(0, 1)
-        # plt.ylim(0, 1400)
         plt.xlabel('Reaction Coordinate', fontsize=25)
         plt.ylabel('Energy(meV)', fontsize=25)
         plt.tick_params(labelsize=18)
@@ -48,6 +47,7 @@ if __name__ == "__main__":
         axis.spines['right'].set_linewidth(bwith)
         plt.legend(fontsize=15, edgecolor='none', loc='upper left', facecolor='none')
         plt.title('{} Path'.format(Transition_Path), fontsize=25)
+        plt.hlines(0, 0, 1.0, colors='gray', linestyles="dashed", lw=2)
         plt.savefig('{0}/{1}.png'.format(figure_path, Transition_Path))
         plt.show()
         plt.close()
