@@ -10,12 +10,15 @@ if __name__ == "__main__":
     Work_Dir = '/mnt/d/PycharmProjects/TI80/Calculation_Files/CI-NEB'
     Diffusion_structure = '/M5_S3'
     Diffusion_Method = '/Interstitial'
-    Diffusion_Atom = '/Al'
-    Paths_list = [["2_Oct_alpha/", "2_Oct_inter_alpha/"],
+    Diffusion_Atom = '/Zr'
+    Paths_list = [["1_Oct_alpha/", "1_Oct_inter_beta/"],
+                  ["1_Oct_inter_beta/", "1_Oct_beta/"],
+                  ["2_Oct_alpha/", "2_Oct_inter_alpha/"],
                   ["2_Oct_inter_alpha/", "2_Oct_inter_beta/"],
                   ["2_Oct_inter_beta/", "2_Oct_beta/"],
                   ["2_Oct_alpha/", "2_Oct_inter_beta/"],
-                  ["2_Oct_inter_alpha/", "2_Oct_beta/"]]
+                  ["2_Oct_inter_alpha/", "2_Oct_beta/"]
+                  ]
     image_value = 3
     for Path_list in Paths_list:
         ini_CONTCAR = '{}{}{}/OPT_DATA/{}/{}CONTCAR'.format(Opt_Dir, Diffusion_structure, Diffusion_Method,
@@ -25,11 +28,11 @@ if __name__ == "__main__":
                                                             Diffusion_Atom,
                                                             Path_list[1])
         ini_OUTCAR = '{}{}{}/OPT_DATA{}/{}OUTCAR'.format(Opt_Dir, Diffusion_structure, Diffusion_Method,
-                                                          Diffusion_Atom,
-                                                          Path_list[0])
+                                                         Diffusion_Atom,
+                                                         Path_list[0])
         fin_OUTCAR = '{}{}{}/OPT_DATA{}/{}OUTCAR'.format(Opt_Dir, Diffusion_structure, Diffusion_Method,
-                                                          Diffusion_Atom,
-                                                          Path_list[1])
+                                                         Diffusion_Atom,
+                                                         Path_list[1])
         ini_structure = Poscar.from_file(ini_CONTCAR).structure
         fin_structure = Poscar.from_file(fin_CONTCAR).structure
 
@@ -41,8 +44,8 @@ if __name__ == "__main__":
             image_number = '/' + '{:0>2d}'.format(neb_number)
             image_Pathname = '/Path_{}-To-{}'.format(Path_list[0][:-1], Path_list[1][2:-1])
             image_Path = '{}{}{}{}/NEB/{}{}'.format(Work_Dir, Diffusion_structure, Diffusion_Method,
-                                                         Diffusion_Atom,
-                                                         image_Pathname, image_number)
+                                                    Diffusion_Atom,
+                                                    image_Pathname, image_number)
             if os.path.exists(image_Path):
                 shutil.rmtree(image_Path)
             os.makedirs(image_Path)
