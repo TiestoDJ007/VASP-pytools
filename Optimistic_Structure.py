@@ -10,9 +10,11 @@ alpha_limit = 2.0
 beta_limit = 15.0
 interface_distance = 2.5662262085598324
 Module_Number = int(5)
-Situation_Number = int(1)
+Situation_Number = int(3)
 
-original_poscar = Poscar.from_file("Initial_Structure/POSCAR_M{0}_S{1}".format(Module_Number, Situation_Number))
+original_poscar = Poscar.from_file(
+    "/mnt/c/Users/jackx/OneDrive/Calculation_Data/TC17_TI80/Initial_Structures/POSCAR_M{0}_S{1}".format(Module_Number,
+                                                                                                        Situation_Number))
 alpha_Ti_list = []
 beta_Ti_list = []
 alpha_Ti_sd = []
