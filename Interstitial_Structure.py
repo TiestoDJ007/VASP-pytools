@@ -6,24 +6,18 @@ import numpy as np
 from pymatgen.io.vasp import Poscar
 
 if __name__ == "__main__":
-    Module_Number = int(6)
-    Situation_Number = int(1)
+    Module_Number = int(5)
+    Situation_Number = int(3)
     Diffusion_Positions = [
-        ['1_Oct_alpha', 15, 7, 31, 23, 28, 4],
-        ['1_Oct_inter', 13, 15, 87, 84, 7, 4],
-        ['1_Oct_beta', 67, 15],
-        ['1_Tet_beta', 87, 11, 67, 15],
-        # ['1_BO_alpha', 4, 40, 28],
-        ['2_Oct_alpha', 15, 7, 31, 23, 28, 4],
-        ['2_Oct_beta', 67, 15],
-        ['2_Tet_beta', 87, 11, 67, 15]
+        ['1_Tri_inter', 1, 85, 25, 37]
     ]
     Diffusion_Atoms = ['Al', 'Cr', 'Mo', 'Nb', 'Sn', 'Ti', 'Zr']
     bottom_limit = 3.0
     upper_limit = 13.0
 
     Structure_Poscar = Poscar.from_file(
-        "Calculation_Files/Optimistic_Structure/POSCAR_SO_M{0}_S{1}".format(Module_Number, Situation_Number))
+        "/mnt/c/Users/jackx/OneDrive/Calculation_Data/TC17_TI80/Optimistic_Structures/POSCAR_SO_M{0}_S{1}".format(
+            Module_Number, Situation_Number))
 
     sd_init = np.ones((Structure_Poscar.natoms[0], 3))
     for number_atom in range(0, Structure_Poscar.natoms[0]):
@@ -40,11 +34,12 @@ if __name__ == "__main__":
             interstitial_postion = interstitial_postion / (len(Diffusion_Position) - 1)
             interstitial_structure = deepcopy(Structure_Poscar.structure)
             interstitial_structure.append(Diffusion_Atom, interstitial_postion, coords_are_cartesian=True)
-            Neb_Path = 'Calculation_Files/CI-NEB/M{0}_S{1}/Interstitial/{2}/Optimistic/{3}'.format(Module_Number,
-                                                                                                          Situation_Number,
-                                                                                                          Diffusion_Atom,
-                                                                                                          Diffusion_Position[
-                                                                                                              0])
+            Neb_Path = '/mnt/c/Users/jackx/OneDrive/Calculation_Data/TC17_TI80/NEB_Files/M{0}_S{1}/Interstitial/{2}/Optimistic/{3}'.format(
+                Module_Number,
+                Situation_Number,
+                Diffusion_Atom,
+                Diffusion_Position[
+                    0])
             if os.path.exists(Neb_Path):
                 shutil.rmtree(Neb_Path)
             os.makedirs(Neb_Path)
@@ -53,8 +48,8 @@ if __name__ == "__main__":
             Poscar_write.write_file('{}/POSCAR'.format(Neb_Path))
             Poscar_write.structure.to(filename='{}/POSCAR.cif'.format(Neb_Path))
 
-from math import sqrt
+#from math import sqrt
 
-tm = np.array([[(sqrt(3) + sqrt(2)), -(sqrt(3) - sqrt(2)), -2 * sqrt(2), 3 * sqrt(2)],
-               [-(sqrt(3) + sqrt(2)), (sqrt(3) - sqrt(2)), 2 * sqrt(2), 3 * sqrt(2)],
-               [2 * sqrt(3) - sqrt(2), -2 * sqrt(3) + sqrt(2), 2 * sqrt(2), 0]])
+# tm = np.array([[(sqrt(3) + sqrt(2)), -(sqrt(3) - sqrt(2)), -2 * sqrt(2), 3 * sqrt(2)],
+#               [-(sqrt(3) + sqrt(2)), (sqrt(3) - sqrt(2)), 2 * sqrt(2), 3 * sqrt(2)],
+#               [2 * sqrt(3) - sqrt(2), -2 * sqrt(3) + sqrt(2), 2 * sqrt(2), 0]])
