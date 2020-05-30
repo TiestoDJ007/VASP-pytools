@@ -5,15 +5,17 @@ from copy import deepcopy
 from pymatgen import Lattice
 from pymatgen.io.vasp import Poscar
 
-Module_Number = int(5)
-Situation_Number = int(3)
-interface_position = 8.0
-gap_distance = 0.06
-max_distance = 2.01
-initial_c = 1.01
+Module_Number = int(6)
+Situation_Number = int(1)
+interface_position = 10
+gap_distance = 0.01
+max_distance = 0.8923503859094439
+initial_c = 0.8913503859094439
 up_c = 0.0
 
-original_poscar = Poscar.from_file("Initial_Structure/POSCAR_M{}_S{}".format(Module_Number, Situation_Number))
+original_poscar = Poscar.from_file(
+    "/mnt/c/Users/jackx/OneDrive/Calculation_Data/TC17_TI80/Optimistic_Structures/POSCAR_SO_M{}_S{}".format(Module_Number,
+                                                                                                         Situation_Number))
 alpha_Ti_list = []
 beta_Ti_list = []
 for number_atom in range(0, original_poscar.structure.num_sites):
@@ -36,9 +38,11 @@ gap_alpha_beta = beta_Ti_min - alpha_Ti_max
 
 for number_step in range(1, int((max_distance - initial_c) / gap_distance) + 1):
 
-    path_name = "Calculation_Files/UBER/M{0}_S{1}_Uber_{2}A_{3}A_{4}A/{5}".format(Module_Number, Situation_Number,
-                                                                             gap_distance + initial_c, gap_distance,
-                                                                             max_distance, number_step)
+    path_name = "/mnt/c/Users/jackx/OneDrive/Calculation_Data/TC17_TI80/UBER_Files/M{0}_S{1}_Uber_{2}A_{3}A_{4}A/{5}".format(
+        Module_Number, Situation_Number,
+        gap_distance + initial_c,
+        gap_distance,
+        max_distance, number_step)
     os.makedirs(path_name)
 
     total_structure = deepcopy(original_poscar)

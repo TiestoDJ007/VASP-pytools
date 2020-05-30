@@ -9,7 +9,7 @@ if __name__ == "__main__":
     Module_Number = int(5)
     Situation_Number = int(3)
     Diffusion_Positions = [
-        ['1_Tri_inter', 1, 85, 25, 37]
+        ['1_BC_a', 40, 4]
     ]
     Diffusion_Atoms = ['Al', 'Cr', 'Mo', 'Nb', 'Sn', 'Ti', 'Zr']
     bottom_limit = 3.0
@@ -48,7 +48,7 @@ if __name__ == "__main__":
             Poscar_write.write_file('{}/POSCAR'.format(Neb_Path))
             Poscar_write.structure.to(filename='{}/POSCAR.cif'.format(Neb_Path))
 
-#from math import sqrt
+# from math import sqrt
 
 # tm = np.array([[(sqrt(3) + sqrt(2)), -(sqrt(3) - sqrt(2)), -2 * sqrt(2), 3 * sqrt(2)],
 #               [-(sqrt(3) + sqrt(2)), (sqrt(3) - sqrt(2)), 2 * sqrt(2), 3 * sqrt(2)],

@@ -15,13 +15,16 @@ def UBER_FUNC(d, E_0, l, d_0):
 if __name__ == '__main__':
 
     d, E = [], []
-    Module_Number = 5
-    Situation_Number = 3
-    start_number =15
-    finish_number = 34
-    UBER_file = open("Results/Uber/M{0}_S{1}".format(Module_Number, Situation_Number), 'r')
+    Module_Number = 6
+    Situation_Number = 1
+    start_number = 1
+    finish_number = 24
+    UBER_file = open(
+        "/mnt/c/Users/jackx/OneDrive/Calculation_Data/TC17_TI80/UBER_Results/M{0}_S{1}".format(Module_Number,
+                                                                                               Situation_Number), 'r')
     original_poscar = Poscar.from_file(
-        "Initial_Structure/POSCAR_M{0}_S{1}".format(int(Module_Number), int(Situation_Number)))
+        "/mnt/c/Users/jackx/OneDrive/Calculation_Data/TC17_TI80/Initial_Structures/POSCAR_M{0}_S{1}".format(
+            int(Module_Number), int(Situation_Number)))
     lines = UBER_file.readlines()
     for number_data in range(0, lines.__len__(), 4):
         d.append(float(lines[number_data + 1].strip("DISTANCE=")))
@@ -38,7 +41,7 @@ if __name__ == '__main__':
     plt.figure()
     d_fit = np.arange(0.1, 10, 0.1)
     E_fit = lambda x: UBER_FUNC(x, parameter[0], parameter[1], parameter[2])
-    Interface_Distance = fminbound(E_fit, 1, 3)
+    Interface_Distance = fminbound(E_fit, 0, 3)
     print("Interface Distance = {}".format(Interface_Distance))
     print("W_Seq = {}".format(E_fit(Interface_Distance) / Area_Value * eV2J))
     plt.plot(d, E / Area_Value * eV2J, 'ko', label="Original Data")

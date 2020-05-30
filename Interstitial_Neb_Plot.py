@@ -13,11 +13,16 @@ if __name__ == "__main__":
     # Diffusion_elements = ['Al', 'Cr', 'Mo', 'Nb', 'Sn', 'Ti', 'Zr']
     Diffusion_elements = ['Al']
     # Transition_Paths = ['01-19', '37-59', '59-01']
-    Transition_Paths = ['Path_1_Oct_alpha-2-Oct_inter_beta/', 'Path_1_Oct_inter_beta-2-Oct_beta/']
+    #'Path_2_Oct_alpha-To-Oct_inter_alpha/'
+    #'Path_2_Oct_inter_alpha-To-Oct_beta/'
+    #'Path_2_Oct_inter_beta-To-Oct_beta/'
+    #'Path_2_Oct_alpha-To-Oct_inter_beta/'
+    #'Path_2_Oct_inter_alpha-To-Oct_inter_beta/'
+    #'Path_1_Oct_alpha-2-Oct_inter_beta/', 'Path_1_Oct_inter_beta-2-Oct_beta/'
+    Transition_Paths = ['Path_2_Oct_alpha-To-Oct_inter_alpha/','Path_2_Oct_inter_alpha-To-Oct_beta/','Path_2_Oct_inter_beta-To-Oct_beta/','Path_2_Oct_alpha-To-Oct_inter_beta/','Path_2_Oct_inter_alpha-To-Oct_inter_beta/' ]
     Diffusion_structure = '/M{}_S{}'.format(Module_Number, Situation_Number)
     Diffusion_Method = 'Interstitial'
-
-    Fig_Dir = '{}/figure/{}'.format(Work_Dir, Diffusion_structure)
+    Fig_Dir = '{}/NEB_Figures/{}'.format(Work_Dir, Diffusion_structure)
     # Neb_Dir = '{}{}{}/NEB_DATA'.format(Work_Dir, Diffusion_structure, Diffusion_elements)
     # OUTCAR_root = '/mnt/c/Users/jackx/OneDrive/Calculation_Data/TC17_TI80/M{0}_S{1}_single'.format(Module_Number,
     #                                                                                               Situation_Number)
@@ -29,13 +34,13 @@ if __name__ == "__main__":
     for Transition_Path in Transition_Paths:
         fig, ax = plt.subplots(figsize=(8, 6))
         for Diffusion_element in Diffusion_elements:
-            Neb_Dir = '{}{}/{}/NEB_DATA/{}/{}'.format(Work_Dir, Diffusion_structure,Diffusion_Method, Diffusion_element,
+            Neb_Dir = '{}/NEB_Results{}/{}/{}/{}'.format(Work_Dir, Diffusion_structure,Diffusion_Method, Diffusion_element,
                                                        Transition_Path)
             # OUTCAR_DIR = "{0}/{1}/{2}".format(Neb_Dir, Diffusion_element, Transition_Path)
             Neb_data = NEBAnalysis.from_dir(Neb_Dir)
             x = Neb_data.r / Neb_data.r[-1]
             y = Neb_data.energies - Neb_data.energies[0]
-            f = interp1d(x, y, kind=5)
+            f = interp1d(x, y, kind='cubic')
             xx = np.linspace(x.min(), x.max(), 100)
             ax.scatter(x, y * 1000, s=70)
             ax.plot(xx, f(xx) * 1000, label=Diffusion_element, linewidth=3)
