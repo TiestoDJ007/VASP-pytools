@@ -9,7 +9,7 @@ if __name__ == "__main__":
     Module_Number = int(5)
     Situation_Number = int(3)
     Diffusion_Positions = [
-        ['1_BC_a', 40, 4]
+        ['1_C_a', 40, 4]
     ]
     Diffusion_Atoms = ['Al', 'Cr', 'Mo', 'Nb', 'Sn', 'Ti', 'Zr']
     bottom_limit = 3.0
@@ -34,7 +34,7 @@ if __name__ == "__main__":
             interstitial_postion = interstitial_postion / (len(Diffusion_Position) - 1)
             interstitial_structure = deepcopy(Structure_Poscar.structure)
             interstitial_structure.append(Diffusion_Atom, interstitial_postion, coords_are_cartesian=True)
-            Neb_Path = '/mnt/c/Users/jackx/OneDrive/Calculation_Data/TC17_TI80/NEB_Files/M{0}_S{1}/Interstitial/{2}/Optimistic/{3}'.format(
+            Neb_Path = '/mnt/c/Users/jackx/OneDrive/Calculation_Data/TC17_TI80/Optimistic_Files/M{0}_S{1}/Interstitial/{2}/{3}'.format(
                 Module_Number,
                 Situation_Number,
                 Diffusion_Atom,

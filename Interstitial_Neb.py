@@ -10,17 +10,17 @@ if __name__ == "__main__":
     Work_Dir = '/mnt/c/Users/jackx/OneDrive/Calculation_Data/TC17_TI80/NEB_Files'
     Diffusion_structure = '/M5_S3'
     Diffusion_Method = '/Interstitial'
-    Diffusion_Atoms = ['Al', 'Cr']
-    Paths_list = [["1_Oct_alpha/", "1_BO_a/"],
-                  ["1_BO_a/", "1_Oct_inter_beta/"]
+    Diffusion_Atoms = ['Al', 'Cr','Mo','Nb','Sn','Ti','Zr']
+    Paths_list = [["1_Oct_alpha/", "1_C_a/"],
+                  ["1_C_a/", "1_Oct_inter_beta/"]
                   ]
     image_value = 3
     for Diffusion_Atom in Diffusion_Atoms:
         for Path_list in Paths_list:
-            ini_CONTCAR = '{}{}/{}/{}/CONTCAR'.format(Opt_Dir, Diffusion_structure, Diffusion_Atom, Path_list[0])
-            fin_CONTCAR = '{}{}/{}/{}/CONTCAR'.format(Opt_Dir, Diffusion_structure, Diffusion_Atom, Path_list[1])
-            ini_OUTCAR = '{}{}/{}/{}/OUTCAR'.format(Opt_Dir, Diffusion_structure, Diffusion_Atom, Path_list[0])
-            fin_OUTCAR = '{}{}/{}/{}/OUTCAR'.format(Opt_Dir, Diffusion_structure, Diffusion_Atom, Path_list[1])
+            ini_CONTCAR = '{}{}/Interstitial/{}/{}CONTCAR'.format(Opt_Dir, Diffusion_structure, Diffusion_Atom, Path_list[0])
+            fin_CONTCAR = '{}{}/Interstitial/{}/{}CONTCAR'.format(Opt_Dir, Diffusion_structure, Diffusion_Atom, Path_list[1])
+            #ini_OUTCAR = '{}{}/{}/{}/OUTCAR'.format(Opt_Dir, Diffusion_structure, Diffusion_Atom, Path_list[0])
+            #fin_OUTCAR = '{}{}/{}/{}/OUTCAR'.format(Opt_Dir, Diffusion_structure, Diffusion_Atom, Path_list[1])
             ini_structure = Poscar.from_file(ini_CONTCAR).structure
             fin_structure = Poscar.from_file(fin_CONTCAR).structure
 
@@ -41,8 +41,8 @@ if __name__ == "__main__":
                 Cif_path = image_Path + '/POSCAR.cif'
                 Poscar(neb_point[neb_number]).write_file('{}'.format(POSCAR_path))
                 Poscar(neb_point[neb_number]).structure.to(filename=Cif_path)
-                if neb_number == 0:
-                    shutil.copy(ini_OUTCAR, image_Path)
-                elif neb_number == image_value + 1:
-                    shutil.copy(fin_OUTCAR, image_Path)
+                #if neb_number == 0:
+                #    shutil.copy(ini_OUTCAR, image_Path)
+                #elif neb_number == image_value + 1:
+                #    shutil.copy(fin_OUTCAR, image_Path)
             print('{} {} Done'.format(Diffusion_Atom,image_Pathname))
