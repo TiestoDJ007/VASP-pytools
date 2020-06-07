@@ -6,13 +6,16 @@ import numpy as np
 from pymatgen.io.vasp import Poscar
 
 if __name__ == "__main__":
-    Module_Number = int(5)
-    Situation_Number = int(3)
+    Module_Number = int(6)
+    Situation_Number = int(1)
     Diffusion_Positions = [
-        ['1_C_a', 40, 4]
+        ['Oct_a', 13, 5, 29, 21, 26, 2],
+        ['C_a', 13, 2],
+        ['BC_b', 82, 10, 13],
+        ['Oct_b', 66, 13]
     ]
     Diffusion_Atoms = ['Al', 'Cr', 'Mo', 'Nb', 'Sn', 'Ti', 'Zr']
-    bottom_limit = 3.0
+    bottom_limit = 5.0
     upper_limit = 13.0
 
     Structure_Poscar = Poscar.from_file(
