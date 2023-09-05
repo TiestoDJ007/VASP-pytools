@@ -1,20 +1,7 @@
-#!/bin/bash
-
-#source /PARA/app/scripts/cn-module.sh
-#source /PARA/app/other/vasp.5.4.4/vasp-module.sh
-#module load vasp/5.4.4-mpi3-O3-scalapack-vtst
-
-echo > comment_POSCAR_a
-for i in $(seq 0.9 0.01 1.1)
-do
-a=$(printf "%.6f" `echo "scale=2;$i*(-3.5061499999999999)"|bc`);
-b=$(printf "%.6f" `echo "scale=2;$i*(-12.0001999999999995)"|bc`);
-#c=$(printf "%.6f" `echo "scale=2;$b*(-1.732051)"|bc`);
-cat >POSCAR<<!
 Cr16 Fe36 N16
 1.0
-  -0.0000000000000006    $a                   -0.0000000000000002
-  $b                     0.0000000000000000   -0.0000000000000007
+  -0.0000000000000006   -3.5061499999999999   -0.0000000000000002
+ -12.0001999999999995    0.0000000000000000   -0.0000000000000007
    0.0000000000000000    0.0000000000000000  -26.8899000000000008
 Cr Fe N
 16 36 16
@@ -88,11 +75,3 @@ direct
    0.5000000000000000    0.1250000000000001    0.9220699999999999 F F F N
    0.0000000000000000    0.5000000000000000    0.0000000000000000 F F F N
    0.0000000000000000    0.2500000000000000    0.0000000000000000 F F F N
-!
-echo "a=$i";
-mpirun -n 128 vasp_std;
-E=`grep "TOTEN" OUTCAR | tail -1|awk '{printf"%12.6f \n",$5}'`
-#$5表示第5个元素
-echo $i $E >> comment_POSCAR_a
-done
-cat comment_POSCAR_a

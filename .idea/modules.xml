@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/α-Ti_β-Ti_interface.iml" filepath="$PROJECT_DIR$/.idea/α-Ti_β-Ti_interface.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/VASP_pytools.iml" filepath="$PROJECT_DIR$/.idea/VASP_pytools.iml" />
     </modules>
   </component>
 </project>
