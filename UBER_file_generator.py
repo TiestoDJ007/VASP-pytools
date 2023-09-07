@@ -10,9 +10,9 @@ file_path_name = "Data_file/POSCAR"
 # 输入原始界面中间值
 interface_position = 7.15
 # 界面步长
-interface_step = 0.6
+interface_step = 0.5
 # 最大界面间距
-max_interface_distance = 8
+max_interface_distance = 10
 initial_interface_distance = 1.82
 up_c = 0.0
 
@@ -49,6 +49,7 @@ for number_step in range(1, int(max_interface_distance / interface_step) + 1):
     # 建立UBER原子模型存放路径
     path_name = "Data_file/UBER_Files/POSCAR_Uber_{0}A".format(step_distance.__format__('.1f'))
     # 生成模型
+    # 生成总模型
     total_structure = deepcopy(original_poscar)
     total_structure.structure.lattice = Lattice.from_parameters(a=original_poscar.structure.lattice.a,
                                                                 b=original_poscar.structure.lattice.b,
@@ -58,6 +59,7 @@ for number_step in range(1, int(max_interface_distance / interface_step) + 1):
                                                                 alpha=original_poscar.structure.lattice.alpha,
                                                                 beta=original_poscar.structure.lattice.beta,
                                                                 gamma=original_poscar.structure.lattice.gamma)
+    # 生成上层模型，通过从总模型删除下层模型
     for number_substance_top in substance_top:
         total_structure.structure.sites[number_substance_top].x = original_poscar.structure.sites[
             number_substance_top].x
@@ -65,6 +67,7 @@ for number_step in range(1, int(max_interface_distance / interface_step) + 1):
             number_substance_top].y
         total_structure.structure.sites[number_substance_top].z = original_poscar.structure.sites[
                                                                       number_substance_top].z - interface_width + up_c + step_distance
+    # 生成下层模型，通过从总模型删除上层模型
     for number_substance_bottem in substance_bottem:
         total_structure.structure.sites[number_substance_bottem].x = original_poscar.structure.sites[
             number_substance_bottem].x
@@ -72,9 +75,8 @@ for number_step in range(1, int(max_interface_distance / interface_step) + 1):
             number_substance_bottem].y
         total_structure.structure.sites[number_substance_bottem].z = original_poscar.structure.sites[
                                                                          number_substance_bottem].z + up_c
-    print(total_structure.structure.sites[substance_top[1]].z)
-    print(total_structure.structure.sites[substance_bottem[1]].z)
 
+    # 标记
     substance_top_structure = deepcopy(total_structure)
     substance_top_structure.structure.remove_sites(substance_bottem)
     substance_top_structure.comment = "substance_top"
@@ -83,6 +85,7 @@ for number_step in range(1, int(max_interface_distance / interface_step) + 1):
     substance_bottem_structure.comment = "substance_bottem"
     total_structure.comment = "total_structure"
 
+    # 写模型文件
     os.makedirs(path_name)
     substance_top_structure.write_file("{0}/POSCAR_top.vasp".format(path_name))
     substance_bottem_structure.write_file("{0}/POSCAR_bottem.vasp".format(path_name))
