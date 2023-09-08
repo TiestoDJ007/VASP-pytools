@@ -1,10 +1,12 @@
-#!/usr/bin/env bash
+#!/usr/bin/bash
 #source /PARA/app/scripts/cn-module.sh
 #source /PARA/app/other/vasp.5.4.4/vasp-module.sh
 #module load vasp/5.4.4-mpi3-O3-scalapack-vtst
+initial_interface_distance=$(printf "%.2f" 1.01)
 echo >structure_energy
-for Number_dir in $(seq 1 1 20); do
-  DISTANCE=$(printf "%.1f" $(echo "scale=2;${Number_dir}*(0.5)" | bc))
+echo
+for Number_dir in $(seq 1 1 32); do
+  DISTANCE=$(printf "%.2f" $(echo "scale=2;${Number_dir}*(0.03)+${initial_interface_distance}" | bc))
   echo "Distance=$DISTANCE"
   cp {INCAR,KPOINTS,POTCAR-bottem,POTCAR-top,POTCAR-total} POSCAR_Uber_${DISTANCE}A/
   cd POSCAR_Uber_${DISTANCE}A || return

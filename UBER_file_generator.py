@@ -10,10 +10,11 @@ file_path_name = "Data_file/POSCAR"
 # 输入原始界面中间值
 interface_position = 7.15
 # 界面步长
-interface_step = 0.5
+interface_step = 0.03
 # 最大界面间距
-max_interface_distance = 10
-initial_interface_distance = 1.82
+max_interface_distance = 2.01
+# 起始界面间距
+initial_interface_distance = 1.01
 up_c = 0.0
 
 original_poscar = Poscar.from_file(file_path_name)
@@ -43,11 +44,12 @@ for number_bottem in substance_bottem:
 interface_width = abs(substance_bottem_cMin - substance_top_cMax)
 
 # 建立不同间距的界面模型
-for number_step in range(1, int(max_interface_distance / interface_step) + 1):
+for number_step in range(1, int((max_interface_distance-initial_interface_distance) / interface_step) + 1):
     # 间距设置
     step_distance = number_step * interface_step
     # 建立UBER原子模型存放路径
-    path_name = "Data_file/UBER_Files/POSCAR_Uber_{0}A".format(step_distance.__format__('.1f'))
+    path_name = "Data_file/UBER_Files/POSCAR_Uber_{0}A".format(
+        (step_distance + initial_interface_distance).__format__('.2f'))
     # 生成模型
     # 生成总模型
     total_structure = deepcopy(original_poscar)
@@ -55,7 +57,7 @@ for number_step in range(1, int(max_interface_distance / interface_step) + 1):
                                                                 b=original_poscar.structure.lattice.b,
                                                                 # 确保真空层厚度一致
                                                                 c=original_poscar.structure.lattice.c - interface_width +
-                                                                  step_distance,
+                                                                  step_distance + initial_interface_distance,
                                                                 alpha=original_poscar.structure.lattice.alpha,
                                                                 beta=original_poscar.structure.lattice.beta,
                                                                 gamma=original_poscar.structure.lattice.gamma)
@@ -66,8 +68,8 @@ for number_step in range(1, int(max_interface_distance / interface_step) + 1):
         total_structure.structure.sites[number_substance_top].y = original_poscar.structure.sites[
             number_substance_top].y
         total_structure.structure.sites[number_substance_top].z = original_poscar.structure.sites[
-                                                                      number_substance_top].z - interface_width + up_c + step_distance
-    # 生成下层模型，通过从总模型删除上层模型
+                                                                      number_substance_top].z - interface_width + up_c + step_distance + initial_interface_distance
+        # 生成下层模型，通过从总模型删除上层模型
     for number_substance_bottem in substance_bottem:
         total_structure.structure.sites[number_substance_bottem].x = original_poscar.structure.sites[
             number_substance_bottem].x
