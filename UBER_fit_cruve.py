@@ -1,32 +1,26 @@
 #!/home/universe/local_env/anaconda3/envs/abinit/bin/python
 
 from math import sin, pi
-
 import matplotlib.pyplot as plt
 import numpy as np
 from pymatgen.io.vasp import Poscar
 from scipy.optimize import curve_fit, fminbound
 
-
 def UBER_FUNC(d, E_0, l, d_0):
     return -E_0 * (1 + (d - d_0) / l) * np.exp(-(d - d_0) / l)
 
-
 if __name__ == '__main__':
 
+    eV2J = 16.0217662
     d, E = [], []
-    Module_Number = 6
-    Situation_Number = 1
     start_number = 1
     finish_number = 24
     UBER_file = open(
-        "/mnt/c/Users/jackx/OneDrive/Calculation_Data/TC17_TI80/UBER_Results/M{0}_S{1}".format(Module_Number,
-                                                                                               Situation_Number), 'r')
+        "/mnt/d/Experiment Data/Nitriding_Layer_Simualtion/Data/Layer_Uber/structure_energy", 'r')
     original_poscar = Poscar.from_file(
-        "/mnt/c/Users/jackx/OneDrive/Calculation_Data/TC17_TI80/Initial_Structures/POSCAR_M{0}_S{1}".format(
-            int(Module_Number), int(Situation_Number)))
+        "/mnt/d/Experiment Data/Nitriding_Layer_Simualtion/Data/Layer_Sample/POSCAR")
     lines = UBER_file.readlines()
-    for number_data in range(0, lines.__len__(), 4):
+    for number_data in range(0, lines.__len__() - 4, 4):
         d.append(float(lines[number_data + 1].strip("DISTANCE=")))
         E.append(float(lines[number_data + 3].strip("W_seq=")))
     E = np.array(E)
@@ -34,7 +28,6 @@ if __name__ == '__main__':
 
     Area_Value = original_poscar.structure.lattice.a * original_poscar.structure.lattice.b * sin(
         original_poscar.structure.lattice.alpha * pi / 180)
-    eV2J = 16.0217662
 
     parameter, func = curve_fit(lambda d, E_0, l, d_0: UBER_FUNC(d, E_0, l, d_0), d[start_number:finish_number],
                                 E[start_number:finish_number])
