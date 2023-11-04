@@ -6,14 +6,14 @@ import numpy as np
 from pymatgen.io.vasp import Poscar
 
 if __name__ == "__main__":
-    Module_Number = int(5)
+#    Module_Number = int(5)
     Situation_Number = int(3)
     Diffusion_Positions = [
         ['a', 16],
         ['b', 84],
         ['i', 40]
     ]
-    Diffusion_Atoms = ['Al', 'Cr', 'Mo', 'Nb', 'Sn', 'Ti', 'Zr']
+    Diffusion_Atoms = ['W']
     bottom_limit = 3.0
     upper_limit = 13.0
 
