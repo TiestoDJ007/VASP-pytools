@@ -4,17 +4,18 @@ from copy import deepcopy
 
 from pymatgen.core import Lattice
 from pymatgen.io.vasp import Poscar
+from pymatgen.io.vasp import Potcar
 
 # 输入文件名称路径
 file_path_name = "Data_file/POSCAR"
 # 输入原始界面中间值
-interface_position = 7.15
+interface_position = 7.5
 # 界面步长
-interface_step = 1.59
+interface_step = 0.5
 # 最大界面间距
-max_interface_distance = 2.01
+max_interface_distance = 3
 # 起始界面间距
-initial_interface_distance = 0
+initial_interface_distance = 0.1
 up_c = 0.0
 
 original_poscar = Poscar.from_file(file_path_name)
@@ -45,13 +46,13 @@ interface_width = abs(substance_bottem_cMin - substance_top_cMax)
 
 # 建立不同间距的界面模型
 for number_step in range(1, int((max_interface_distance-initial_interface_distance) / interface_step) + 1):
-    print(number_step)
+    #print(number_step)
     # 间距设置
     step_distance = number_step * interface_step
     # 建立UBER原子模型存放路径
-    # path_name = "Data_file/UBER_Files/POSCAR_Uber_{0}A".format(
-    #     (step_distance + initial_interface_distance).__format__('.2f'))
-    path_name = "/mnt/d/Experiment Data/Nitriding_Layer_Simualtion/Data/Layer_Uber/"
+    path_name = "Data_file/UBER_Files/POSCAR_Uber_{0}A".format(
+         (step_distance + initial_interface_distance).__format__('.2f'))
+    #path_name = "/mnt/d/Experiment Data/Nitriding_Layer_Simualtion/Vasp_Data/Layer_Add_Mo_Uber"
     # 生成模型
     # 生成总模型
     total_structure = deepcopy(original_poscar)
@@ -90,7 +91,13 @@ for number_step in range(1, int((max_interface_distance-initial_interface_distan
     total_structure.comment = "total_structure"
 
     # 写模型文件
-    #os.makedirs(path_name)
-    #substance_top_structure.write_file("{0}/POSCAR_top.vasp".format(path_name))
-    #substance_bottem_structure.write_file("{0}/POSCAR_bottem.vasp".format(path_name))
+    os.makedirs(path_name)
+    substance_top_structure.write_file("{0}/POSCAR_top.vasp".format(path_name))
+    substance_bottem_structure.write_file("{0}/POSCAR_bottem.vasp".format(path_name))
     total_structure.write_file("{0}/POSCAR_total.vasp".format(path_name))
+
+    # 写POTCAR文件
+    path_potcar = "Data_file/UBER_Files/"
+    Potcar(substance_top_structure.site_symbols).write_file("{0}/POTCAR_top".format(path_potcar))
+    Potcar(substance_bottem_structure.site_symbols).write_file("{0}/POTCAR_bottem".format(path_potcar))
+    Potcar(total_structure.site_symbols).write_file("{0}/POTCAR_total".format(path_potcar))
