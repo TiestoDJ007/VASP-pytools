@@ -6,9 +6,9 @@ from pymatgen.core import Lattice
 
 # 界面中间预估位置
 interface_position = 8.0
-# 界面上半层原子固定起始位置
+# 界面上半层原子起始位置
 top_layer_limit = 2.0
-# 界面下半层原子固定起始位置
+# 界面下半层原子起始位置
 bottem_layer_limit = 15.0
 # 上下层UBER最佳间距
 interface_distance = 2.5662262085598324
