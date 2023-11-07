@@ -16,9 +16,9 @@ if __name__ == '__main__':
     start_number = 1
     finish_number = 24
     UBER_file = open(
-        "/mnt/d/Experiment Data/Nitriding_Layer_Simualtion/Data/Layer_Uber/structure_energy", 'r')
+        "Data_file/structure_energy", 'r')
     original_poscar = Poscar.from_file(
-        "/mnt/d/Experiment Data/Nitriding_Layer_Simualtion/Data/Layer_Sample/POSCAR")
+        "Data_file/POSCAR")
     lines = UBER_file.readlines()
     for number_data in range(0, lines.__len__() - 4, 4):
         d.append(float(lines[number_data + 1].strip("DISTANCE=")))
@@ -32,7 +32,7 @@ if __name__ == '__main__':
     parameter, func = curve_fit(lambda d, E_0, l, d_0: UBER_FUNC(d, E_0, l, d_0), d[start_number:finish_number],
                                 E[start_number:finish_number])
     plt.figure()
-    d_fit = np.arange(0.1, 10, 0.1)
+    d_fit = np.arange(0.1, 10, 0.01)
     E_fit = lambda x: UBER_FUNC(x, parameter[0], parameter[1], parameter[2])
     Interface_Distance = fminbound(E_fit, 0, 3)
     print("Interface Distance = {}".format(Interface_Distance))

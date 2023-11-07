@@ -1,56 +1,64 @@
 #!/home/universe/local_env/anaconda3/envs/abinit/bin/python
-from copy import deepcopy
-
 import numpy as np
-from pymatgen import Lattice
+from copy import deepcopy
 from pymatgen.io.vasp import Poscar
+from pymatgen.core import Lattice
 
+# 界面中间预估位置
 interface_position = 8.0
-alpha_limit = 2.0
-beta_limit = 15.0
+# 界面上半层原子固定起始位置
+top_layer_limit = 2.0
+# 界面下半层原子固定起始位置
+bottem_layer_limit = 15.0
+# 上下层UBER最佳间距
 interface_distance = 2.5662262085598324
-Module_Number = int(5)
-Situation_Number = int(3)
+# 读取文件位置
+POSCAR_PATH = "Data_file/POSCAR"
+# 保存路径和文件名
+POSCAR_SAVE = "Calculation_Files/Optimistic_Structure"
 
-original_poscar = Poscar.from_file(
-    "/mnt/c/Users/jackx/OneDrive/Calculation_Data/TC17_TI80/Initial_Structures/POSCAR_M{0}_S{1}".format(Module_Number,
-                                                                                                        Situation_Number))
-alpha_Ti_list = []
-beta_Ti_list = []
-alpha_Ti_sd = []
-beta_Ti_sd = []
-for number_atom in range(0, original_poscar.structure.num_sites):
-    if original_poscar.structure[number_atom].z > interface_position:
-        beta_Ti_list.append(number_atom)
+# 上半层原子暂存list
+list_top_layer = []
+# 下半层原子暂存list
+list_bottem_layer = []
+
+Poscar_Original = Poscar.from_file(POSCAR_PATH)
+for number_atom in range(0, Poscar_Original.structure.num_sites):
+    if Poscar_Original.structure[number_atom].z > interface_position:
+        list_top_layer.append(number_atom)
     else:
-        alpha_Ti_list.append(number_atom)
+        list_bottem_layer.append(number_atom)
+    # 计入top_layer_limit之下, bottem_layer_limit之上的原子序号
+    if Poscar_Original.structure[number_atom].z < top_layer_limit:
+        list_top_layer.append(number_atom)
+    if Poscar_Original.structure[number_atom].z > bottem_layer_limit:
+        list_bottem_layer.append(number_atom)
 
-    if original_poscar.structure[number_atom].z < alpha_limit:
-        alpha_Ti_sd.append(number_atom)
-    if original_poscar.structure[number_atom].z > beta_limit:
-        beta_Ti_sd.append(number_atom)
+# 上层动原子Z最大值
+ZMax_top_layer_Dynamic = 0
+for number_top in list_top_layer:
+    if Poscar_Original.structure[number_top].z > ZMax_top_layer_Dynamic:
+        ZMax_top_layer_Dynamic = Poscar_Original.structure[number_top].z
+# 下层动原子Z最大值
+ZMax_bottem_layer_Dynamic = 100
+for number_bottem in list_bottem_layer:
+    if Poscar_Original.structure[number_bottem].z < ZMax_bottem_layer_Dynamic:
+        ZMax_bottem_layer_Dynamic = Poscar_Original.structure[number_bottem].z
 
-alpha_Ti_max = 0
-for number_alpha in alpha_Ti_list:
-    if original_poscar.structure[number_alpha].z > alpha_Ti_max:
-        alpha_Ti_max = original_poscar.structure[number_alpha].z
+# SelectiveDynamic矩阵初始化
+SelectiveDynamic_array = np.ones((Poscar_Original.natoms[0], 3))
+# 更改上层结构优化原子SelectiveDynamic值
+for number_SelectiveDynamic_top in list_top_layer:
+    SelectiveDynamic_array[number_SelectiveDynamic_top] = np.zeros(3)
+# 更改上下层结构优化原子SelectiveDynamic值
+for number_SelectiveDynamic_bottem in list_bottem_layer:
+    SelectiveDynamic_array[number_SelectiveDynamic_bottem] = np.zeros(3)
 
-beta_Ti_min = 100
-for number_beta in beta_Ti_list:
-    if original_poscar.structure[number_beta].z < beta_Ti_min:
-        beta_Ti_min = original_poscar.structure[number_beta].z
+# 结构优化区的Z值间隔
+gap_alpha_beta = ZMax_top_layer_Dynamic - ZMax_bottem_layer_Dynamic
 
-sd_array = np.ones((original_poscar.natoms[0], 3))
-for number_sd_alpha in alpha_Ti_sd:
-    sd_array[number_sd_alpha] = np.zeros(3)
-for number_sd_beta in beta_Ti_sd:
-    sd_array[number_sd_beta] = np.zeros(3)
-
-gap_alpha_beta = beta_Ti_min - alpha_Ti_max
-
-path_name = "Calculation_Files/Optimistic_Structure"
-
-total_structure = deepcopy(original_poscar)
+# 开始计算整体结构
+total_structure = deepcopy(Poscar_Original)
 total_structure.structure.lattice = Lattice.from_parameters(a=total_structure.structure.lattice.a,
                                                             b=total_structure.structure.lattice.b,
                                                             c=total_structure.structure.lattice.c - (

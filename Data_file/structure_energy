@@ -1,0 +1,141 @@
+
+DISTANCE=0.60
+E_top= -258.748844  E_bottem= -279.057986  E_total= -160.367312
+W_seq=377.439518
+
+DISTANCE=1.10
+E_top= -258.748927  E_bottem= -279.057772  E_total= -508.536826
+W_seq=29.269873
+
+DISTANCE=1.60
+E_top= -258.749090  E_bottem= -279.057523  E_total= -542.391586
+W_seq=-4.584973
+
+DISTANCE=1.64
+E_top= -258.748937  E_bottem= -279.057587  E_total= -542.734447 
+W_seq=-4.927923
+
+DISTANCE=1.67
+E_top= -258.748979  E_bottem= -279.057687  E_total= -542.932758 
+W_seq=-5.126092
+
+DISTANCE=1.70
+E_top= -258.748867  E_bottem= -279.057735  E_total= -543.088546 
+W_seq=-5.281944
+
+DISTANCE=1.73
+E_top= -258.748705  E_bottem= -279.057739  E_total= -543.208152 
+W_seq=-5.401708
+
+DISTANCE=1.76
+E_top= -258.748567  E_bottem= -279.057941  E_total= -543.296885 
+W_seq=-5.490377
+
+DISTANCE=1.79
+E_top= -258.748603  E_bottem= -279.058082  E_total= -543.358566 
+W_seq=-5.551881
+
+DISTANCE=1.82
+E_top= -258.748733  E_bottem= -279.058180  E_total= -543.396401 
+W_seq=-5.589488
+
+DISTANCE=1.85
+E_top= -258.748807  E_bottem= -279.058308  E_total= -543.413568 
+W_seq=-5.606453
+
+DISTANCE=1.88
+E_top= -258.748887  E_bottem= -279.058222  E_total= -543.412327 
+W_seq=-5.605218
+
+DISTANCE=1.91
+E_top= -258.748971  E_bottem= -279.058148  E_total= -543.394925 
+W_seq=-5.587806
+
+DISTANCE=1.94
+E_top= -258.748974  E_bottem= -279.058226  E_total= -543.363236 
+W_seq=-5.556036
+
+DISTANCE=1.97
+E_top= -258.749013  E_bottem= -279.058267  E_total= -543.318946 
+W_seq=-5.511666
+
+DISTANCE=2.00
+E_top= -258.748911  E_bottem= -279.058281  E_total= -543.263392 
+W_seq=-5.456200
+
+DISTANCE=2.03
+E_top= -258.748739  E_bottem= -279.058117  E_total= -543.197777 
+W_seq=-5.390921
+
+DISTANCE=2.06
+E_top= -258.748538  E_bottem= -279.057836  E_total= -543.123363 
+W_seq=-5.316989
+
+DISTANCE=2.09
+E_top= -258.748524  E_bottem= -279.057633  E_total= -543.041852 
+W_seq=-5.235695
+
+DISTANCE=2.12
+E_top= -258.748709  E_bottem= -279.057556  E_total= -542.954222 
+W_seq=-5.147957
+
+DISTANCE=2.15
+E_top= -258.748652  E_bottem= -279.057462  E_total= -542.860808 
+W_seq=-5.054694
+
+DISTANCE=2.18
+E_top= -258.748736  E_bottem= -279.057413  E_total= -542.762768 
+W_seq=-4.956619
+
+DISTANCE=2.21
+E_top= -258.748893  E_bottem= -279.057253  E_total= -542.660853 
+W_seq=-4.854707
+
+DISTANCE=2.24
+E_top= -258.748888  E_bottem= -279.057282  E_total= -542.555872 
+W_seq=-4.749702
+
+DISTANCE=2.27
+E_top= -258.748881  E_bottem= -279.057376  E_total= -542.448459 
+W_seq=-4.642202
+
+DISTANCE=2.30
+E_top= -258.748809  E_bottem= -279.057354  E_total= -542.338926 
+W_seq=-4.532763
+
+DISTANCE=2.33
+E_top= -258.748847  E_bottem= -279.057439  E_total= -542.228344 
+W_seq=-4.422058
+
+DISTANCE=2.36
+E_top= -258.748738  E_bottem= -279.057249  E_total= -542.116610 
+W_seq=-4.310623
+
+DISTANCE=2.39
+E_top= -258.748748  E_bottem= -279.057175  E_total= -542.004772 
+W_seq=-4.198849
+
+DISTANCE=2.42
+E_top= -258.748630  E_bottem= -279.057173  E_total= -541.892929 
+W_seq=-4.087126
+
+DISTANCE=2.45
+E_top= -258.748804  E_bottem= -279.057975  E_total= -541.782706 
+W_seq=-3.975927
+
+DISTANCE=2.48
+E_top= -258.748439  E_bottem= -279.058072  E_total= -541.671973 
+W_seq=-3.865462
+
+DISTANCE=2.51
+E_top= -258.748625  E_bottem= -279.058082  E_total= -541.562511 
+W_seq=-3.755804
+
+DISTANCE=2.54
+E_top= -258.748641  E_bottem= -279.058295  E_total= -541.454384 
+W_seq=-3.647448
+
+DISTANCE=2.57
+E_top= -258.748759  E_bottem= -279.058466  E_total= -541.347723 
+W_seq=-3.540498
+
