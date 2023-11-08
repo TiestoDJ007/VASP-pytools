@@ -11,11 +11,11 @@ file_path_name = "Data_file/POSCAR"
 # 输入原始界面中间值
 interface_position = 7.5
 # 界面步长
-interface_step = 0.01
+interface_step = 0.5
 # 最大界面间距
-max_interface_distance = 1.86
+max_interface_distance = 8
 # 起始界面间距
-initial_interface_distance = 1.85
+initial_interface_distance = -0.2
 up_c = 0.0
 
 original_poscar = Poscar.from_file(file_path_name)
