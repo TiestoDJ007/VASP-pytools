@@ -9,7 +9,7 @@ from pymatgen.io.vasp import Potcar
 # 输入文件名称路径
 file_path_name = "Data_file/POSCAR"
 # 输入原始界面中间值
-interface_position = 7.5
+interface_position = 13
 # 界面步长
 interface_step = 0.5
 # 最大界面间距
