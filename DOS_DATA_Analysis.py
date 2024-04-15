@@ -6,7 +6,7 @@ from pymatgen.electronic_structure.core import OrbitalType
 # LDOS文件暂时不需要，本态密度处理针对PDOS和TDOS，得出的数据用csv格式存储
 # 需要手动输入所处理的原子轨道，原子名称
 # vasprun.xml文件位置设定
-path_vasprunXML = "/mnt/d/Experiment Data/Nitriding_Layer_Simualtion/Vasp_Data/Layer_Add_Mo_DOS/DOS/vasprun.xml"
+path_vasprunXML = "/mnt/e/Experiment Data/Nitriding_Layer_Simualtion/Vasp_Data/Layer_Add_Mo_DOS/DOS/vasprun.xml"
 # 界面上半层原子Z方向截止
 top_layer_limit = 11.13
 # 界面下半层原子Z方向截止
