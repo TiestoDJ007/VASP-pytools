@@ -13,7 +13,7 @@ interface_position = 13
 # 界面步长
 interface_step = 0.5
 # 最大界面间距
-max_interface_distance = 8
+max_interface_distance = 7.5
 # 起始界面间距
 initial_interface_distance = -0.2
 up_c = 0.0

@@ -13,7 +13,7 @@ if __name__ == '__main__':
 
     eV2J = 16.0217662
     d, E = [], []
-    start_number = 1
+    start_number = 2
     finish_number = 24
     UBER_file = open(
         "Data_file/structure_energy", 'r')

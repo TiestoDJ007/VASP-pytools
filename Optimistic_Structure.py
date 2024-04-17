@@ -13,7 +13,7 @@ top_layer_limit = 11.13
 # 界面下半层原子Z方向截止
 bottem_layer_limit = 2.1
 # 上下层UBER最佳间距
-interface_distance = 1.86
+interface_distance = 1.59
 # 读取文件位置
 POSCAR_PATH = "Data_file/POSCAR"
 # 保存路径和文件名
