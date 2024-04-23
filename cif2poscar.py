@@ -3,12 +3,13 @@ from pymatgen.io.cif import CifParser
 from pymatgen.io.cif import CifWriter
 from pymatgen.io.vasp import Poscar
 
-parser = CifParser("Data_file/Layer_first_Mo.cif")
+cif_fileName  = "Structure_1-Cr"
+parser = CifParser("Data_file/{}.cif".format(cif_fileName))
 structure = (parser.get_structures()[0])*(-1)
 #POSCAR_Data = Poscar.from_file('Data_file/POSCAR')
 #structure = POSCAR_Data.structure
 
-upper_position = 17.2
+upper_position = 22.6
 bottom_position = 7.0
 atomic_tot_number = len(structure.sites)
 select_dynamics_list = []
@@ -25,9 +26,9 @@ select_dynamics_array = np.array(select_dynamics_list)
 # Poscar_Writer_Cart = Poscar_Writer.get_str(direct=False)
 
 CIF_Writer = CifWriter(structure)
-CIF_Writer.write_file(filename="Data_file/Layer_first_Mo_modified.cif")
+CIF_Writer.write_file(filename="Data_file/{}_trans.cif".format(cif_fileName))
 
-Poscar_parser = CifParser(filename="Data_file/Layer_first_Mo_modified.cif")
+Poscar_parser = CifParser(filename="Data_file/{}_trans.cif".format(cif_fileName))
 Poscar_structure = Poscar_parser.get_structures()[0]
 Poscar_writer = Poscar(Poscar_structure, selective_dynamics=select_dynamics_array)
 #Poscar_writer = Poscar(structure, selective_dynamics=select_dynamics_array)
