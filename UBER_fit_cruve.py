@@ -14,7 +14,7 @@ if __name__ == '__main__':
     eV2J = 16.0217662
     d, E = [], []
     start_number = 2
-    finish_number = 24
+    finish_number = 6
     UBER_file = open(
         "Data_file/structure_energy", 'r')
     original_poscar = Poscar.from_file(
