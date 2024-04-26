@@ -3,9 +3,9 @@ from pymatgen.io.cif import CifParser
 from pymatgen.io.cif import CifWriter
 from pymatgen.io.vasp import Poscar
 
-cif_fileName  = "Structure_1-Cr"
+cif_fileName  = "Structure_1-Cr_Fe2W_opt"
 parser = CifParser("Data_file/{}.cif".format(cif_fileName))
-structure = (parser.get_structures()[0])*(-1)
+structure = (parser.get_structures()[0])
 #POSCAR_Data = Poscar.from_file('Data_file/POSCAR')
 #structure = POSCAR_Data.structure
 
@@ -33,3 +33,4 @@ Poscar_structure = Poscar_parser.get_structures()[0]
 Poscar_writer = Poscar(Poscar_structure, selective_dynamics=select_dynamics_array)
 #Poscar_writer = Poscar(structure, selective_dynamics=select_dynamics_array)
 Poscar_writer.write_file(filename="Data_file/POSCAR")
+Poscar_writer.write_file(filename="Data_file/POSCAR.vasp")
