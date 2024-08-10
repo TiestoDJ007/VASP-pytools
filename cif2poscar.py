@@ -3,7 +3,7 @@ from pymatgen.io.cif import CifParser
 from pymatgen.io.cif import CifWriter
 from pymatgen.io.vasp import Poscar
 
-cif_fileName  = "Structure_1-Cr_Fe2Mo"
+cif_fileName  = "Structure_1-Cr_Fe2W_v2"
 parser = CifParser("Data_file/{}.cif".format(cif_fileName))
 structure = (parser.get_structures()[0])
 #POSCAR_Data = Poscar.from_file('Data_file/POSCAR')

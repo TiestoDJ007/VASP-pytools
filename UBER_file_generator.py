@@ -11,7 +11,7 @@ file_path_name = "Data_file/POSCAR"
 # 输入原始界面中间值
 interface_position = 14
 # 界面步长
-interface_step = 0.02
+interface_step = 0.03
 # 最大界面间距
 max_interface_distance = 1.11
 # 起始界面间距
