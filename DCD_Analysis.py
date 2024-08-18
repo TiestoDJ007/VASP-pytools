@@ -34,13 +34,13 @@ data_plot = np.flip(data_DCD[:, slice_point, :])[:, 20:]
 # 绘制CHGCAR面
 cm = 1 / 2.54
 plt.rcParams['figure.dpi'] = 600
-plt.figure(figsize=(6 * cm, 3.5 * cm))
-plt.subplots_adjust(left=0.02, right=0.85, top=0.99, bottom=0.15)
+plt.figure(figsize=(6 * cm, 2.8 * cm))
+plt.subplots_adjust(left=0.01, right=0.88, top=0.98, bottom=0.02)
 # 显示数据，并设置颜色映射和插值方法
 # im = plt.imshow(data_plot, cmap='jet', interpolation='bilinear', vmin=-400, vmax=400)
 im = plt.imshow(data_plot, cmap='jet', interpolation='bilinear')
 # 添加颜色条，并设置其位置和大小
-cbar = plt.colorbar(im, fraction=0.064, orientation='vertical', pad=0.02, aspect=7.8, format=("%d"))
+cbar = plt.colorbar(im, fraction=0.05, orientation='vertical', pad=0.02, aspect=9.6, format=("%.1f"))
 cbar.ax.tick_params(labelsize=6)
 # cbar.ax.set_ylabel(rotation=-90, va='bottom')
 plt.xticks([])
