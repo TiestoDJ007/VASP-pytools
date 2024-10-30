@@ -6,10 +6,10 @@ import numpy as np
 # 设定切片位置
 slice_position = 2.17253
 # Vasprun和3个CHGCAR路径
-path_vasprunXML = "/mnt/e/ExperimentData/Nitriding_Layer_Simualtion/Summary/Structure_1/Data_W/DCD_Calculation/Total/vasprun.xml"
-path_CHGCAR_total = "/mnt/e/ExperimentData/Nitriding_Layer_Simualtion/Summary/Structure_1/Data_W/DCD_Calculation/Total/CHGCAR"
-path_CHGCAR_main = "/mnt/e/ExperimentData/Nitriding_Layer_Simualtion/Summary/Structure_1/Data_W/DCD_Calculation/CrN_Fe/CHGCAR"
-path_CHGCAR_mono = "/mnt/e/ExperimentData/Nitriding_Layer_Simualtion/Summary/Structure_1/Data_W/DCD_Calculation/W/CHGCAR"
+path_vasprunXML = "/mnt/d/ExperimentData/Nitriding_Layer_Simualtion/Summary/Structure_1/Data_Mo/DCD_Calculation/Total/vasprun.xml"
+path_CHGCAR_total = "/mnt/d/ExperimentData/Nitriding_Layer_Simualtion/Summary/Structure_1/Data_Mo/DCD_Calculation/Total/CHGCAR"
+path_CHGCAR_main = "/mnt/d/ExperimentData/Nitriding_Layer_Simualtion/Summary/Structure_1/Data_Mo/DCD_Calculation/CrN_Fe/CHGCAR"
+path_CHGCAR_mono = "/mnt/d/ExperimentData/Nitriding_Layer_Simualtion/Summary/Structure_1/Data_Mo/DCD_Calculation/Mo/CHGCAR"
 # 导入数据
 vasprun_result = Vasprun(path_vasprunXML, parse_potcar_file=False)
 cal_structure = vasprun_result.structures[0]
